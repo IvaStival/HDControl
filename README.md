@@ -58,10 +58,10 @@ We can see a example of each table below:
 
 **hds**
 
-| id | name | creation_date | remove_date | size(TB) | code | qr_code | url_image |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | FFHD_01 | 2022-01-01 | 2022-02-01 | 4 | NVG123N | ***** | https://fantasticafilmes.com/img.png |
-|  |  |  |  |  |  |  |  |
+| id | name | modification_date | size(TB) | code | qr_code | url_image |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | FFHD_01 | 2022-02-01 | 4 | NVG123N | ***** | https://fantasticafilmes.com/img.png |
+|  |  |  |  |  |  |  |
 
 **hds_info**
 
