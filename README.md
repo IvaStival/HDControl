@@ -68,9 +68,9 @@ We can see a example of each table below:
 The second will store all log information about the HDs traffic:
 
 | id | city | location  | phone | email | date | description | type | created_by |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Curitiba | Fantastica Filmes | (41) 996836428 | stival@fantasticafilmes.com | 2022-01-10 | 2022_02_FRIMESA | Post | stival@fantasticafilmes.com |
-|  |  |  |  |  |  |  |  |  |  |
+|  |  |  |  |  |  |  |  |  |
 
 All these tables can change, they all are a first idea.
 
