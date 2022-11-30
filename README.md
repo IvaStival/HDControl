@@ -102,3 +102,12 @@ Will exists filters to show only specifics infos to be easy to find what the use
 - https://www.fastprint.co.uk/blog/quick-response-codes-what-are-they-and-how-do-they-work.html
 - https://www.sproutqr.com/blog/how-do-qr-codes-work
 - https://www.geeksforgeeks.org/generate-qr-code-using-qrcode-in-python/
+
+
+npm install --save axios
+npm install --save redux react-redux
+npm install --save @reduxjs/toolkit
+npm install --save react-router-dom
+npm install --save json-server
+npm install --save redux-thunk
+npm install --save lodash

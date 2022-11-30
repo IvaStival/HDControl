@@ -1,0 +1,11 @@
+{
+  "hds": [
+    {
+      "name": "HD001",
+      "hd_size": "4",
+      "code": "NGT123",
+      "location": "Fantastica",
+      "id": 1
+    }
+  ]
+}
