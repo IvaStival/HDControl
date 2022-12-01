@@ -1,4 +1,5 @@
 import React, { createElement } from "react";
+import _ from 'lodash';
 import {
     FETCH_HD,
     FETCH_HDS,
@@ -12,12 +13,17 @@ import {
 
 const hdReducers = (state = {}, action) => {
     switch(action.type){
+        case CREATE_HD:
+            console.log(state)
+            return {...state, [action.payload.id]: action.payload}
+
+        case FETCH_HDS:
+            return {...state, ..._.mapKeys(action.payload, 'id')}
+            
         case FETCH_HD:
             return {...state, [action.payload.id]: action.payload}
 
-        case CREATE_HD:
-            console.log(state)
-            return {...state, [action.payload.id]: action.payload, location: "Fantastica"}
+        
 
         default:
             return state;

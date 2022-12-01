@@ -1,11 +1,29 @@
 {
   "hds": [
     {
-      "name": "HD001",
+      "name": "FFHD001",
       "hd_size": "4",
       "code": "NGT123",
-      "location": "Fantastica",
       "id": 1
+    },
+    {
+      "name": "FFHD002",
+      "hd_size": "4",
+      "code": "NG42131",
+      "id": 2
+    },
+    {
+      "name": "FFHD003",
+      "code": "NGT3123",
+      "hd_size": "2",
+      "id": 3
+    },
+    {
+      "name": "FFHD005",
+      "hd_size": "4",
+      "code": "NGT123123",
+      "id": 4
     }
-  ]
+  ],
+  "loc": []
 }

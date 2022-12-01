@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
     FETCH_HD,
     FETCH_HDS,
@@ -17,6 +18,14 @@ export const createHd = (formValues) => {
         const response = await json_server.post('/hds', {...formValues});
 
         dispatch({type: CREATE_HD, payload: response.data})
+    }
+}
+
+export const fetchHds = () => {
+    return async (dispatch) => {
+        const response = await json_server.get('/hds')
+
+        dispatch({type: FETCH_HDS, payload: response.data})
     }
 }
 

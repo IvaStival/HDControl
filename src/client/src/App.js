@@ -8,7 +8,7 @@ import HdCreate from "./components/hds/HdCreate";
 
 function App() {
   return (
-    // <div className='ui container'>
+    <div className='ui container'>
       <BrowserRouter>
           <Header />
           <Routes>
@@ -17,7 +17,7 @@ function App() {
             <Route path="/hds/new" element={<HdCreate/>}/>
           </Routes> 
       </BrowserRouter>
-    // </div>
+    </div>
     );
 }
 
