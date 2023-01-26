@@ -5,7 +5,6 @@ Project to catalog and manage HDs from Fantástica Filmes.
 - [Objective](#objective)
 - [Setup](#setup)
 - [Project](#project)
-- [Docker](#docker)
 - [React.js](#reactjs)
 - [Web Page](#web-page)
     - [Login Page](#login-page)
@@ -67,10 +66,10 @@ We can see a example of each table below:
 
 The second will store all log information about the HDs traffic:
 
-| id  | id_hd | location  | phone | email | date | job |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1 | 1 | Fantastica Filmes | (41) 996836428 | stival@fantasticafilmes.com | 2022-01-10 | 2022_02_FRIMESA |
-|  |  |  |  |  |  |  |
+| id  | id_hd | location | responsible | phone | email | date | job |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 1 | Fantastica Filmes | Juca | (41) 996836428 | stival@fantasticafilmes.com | 2022-01-10 | 2022_02_FRIMESA |
+|  |  |  |  |  |  |  |  |
 
 All these tables can change, they all are a first idea.
 

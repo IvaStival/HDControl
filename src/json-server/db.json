@@ -1,29 +1,58 @@
 {
   "hds": [
     {
-      "name": "FFHD001",
-      "hd_size": "4",
+      "title": "FFHD001",
+      "size": "4",
       "code": "NGT123",
+      "qrcode": "QR1",
       "id": 1
     },
     {
-      "name": "FFHD002",
-      "hd_size": "4",
+      "title": "FFHD002",
+      "size": "4",
       "code": "NG42131",
+      "qrcode": "QR2",
       "id": 2
     },
     {
-      "name": "FFHD003",
+      "title": "FFHD003",
       "code": "NGT3123",
-      "hd_size": "2",
+      "size": "2",
+      "qrcode": "QR3",
       "id": 3
     },
     {
-      "name": "FFHD005",
-      "hd_size": "4",
+      "title": "FFHD005",
+      "size": "4",
       "code": "NGT123123",
+      "qrcode": "QR4",
       "id": 4
+    },
+    {
+      "title": "FFHD010",
+      "size": "4",
+      "code": "NGT123",
+      "qrcode": "QR5",
+      "id": 5
+    },
+    {
+      "title": "FFHD0019",
+      "size": "2",
+      "code": "NGH123",
+      "qrcode": "QRCode",
+      "id": 6
     }
   ],
-  "loc": []
+  "locs": [
+    {
+      "hd_id": 5,
+      "location": "Fantastica",
+      "responsible": "",
+      "phone": "",
+      "mail": "",
+      "date": "",
+      "job": "",
+      "id": 1
+    }
+  ]
 }

@@ -2,20 +2,30 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { Provider } from 'react-redux';
-import { applyMiddleware, compose } from 'redux';
-import { configureStore } from '@reduxjs/toolkit';
-import reduxThunk from 'redux-thunk';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import reducers from './reducers';
+import './index.css';
 
 import App from './App';
+import HdCreate from './pages/HdCreate';
+import store from './store'
 
-const composeEnhacers = window.__REDUX_DECTOOLS_EXTENSION_COMPOSE__ || compose
-const store = configureStore({reducer:reducers}, composeEnhacers(applyMiddleware(reduxThunk)));
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <App />
+    },
+    {
+        path: "/create",
+        element: <HdCreate />
+    }
+])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={store}>
-    <App />
-  </Provider>
+    <React.StrictMode>
+        <Provider store={store}>
+            <RouterProvider router={router}/>
+        </Provider>
+    </React.StrictMode>
 );
