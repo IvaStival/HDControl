@@ -1,7 +1,10 @@
+import './Panel.css'
 
-const Panel = () => {
+const Panel = (props) => {
     return (
-        <div>Panel</div>
+        <div className="panel-content">
+            {props.children}
+        </div>
     )
 }
 

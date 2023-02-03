@@ -1,0 +1,31 @@
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 2px;
+    width: 90vw;
+    height: 100vh;
+}
+
+.btn-crud {
+    width: 4rem;
+}
+
+.btn-del {
+    margin-left: 2px;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    float: right;
+}
+
+.btn-add {
+    position: relative;
+    border-radius: 50%;
+    right: 0;
+    width: 35px;
+    margin-left: auto;
+    margin-top: 30px;
+}

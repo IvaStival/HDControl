@@ -5,6 +5,8 @@ import Button from '../components/Button';
 
 import { useNavigate } from 'react-router-dom';
 
+import './HdList.css';
+
 const HdList = () => {
     const { data, error, isFetching } = useFetchHdsQuery();
     const navigate = useNavigate();
@@ -28,11 +30,11 @@ const HdList = () => {
         },
         {
             label: '',
-            render: (hd) => (<div className='flex flex-row float-right'>
-                                <Button className="w-16 mr-1" primary rounded onClick={() => handleAddHd(hd)}>
+            render: (hd) => (<div className='btn-container'>
+                                <Button className="btn-crud" primary rounded onClick={() => handleAddHd(hd)}>
                                     Edit
                                 </Button>
-                                <Button className="w-16" secondary rounded>
+                                <Button className="btn-crud btn-del" secondary rounded>
                                     Delete
                                 </Button>
                             </div>)              
@@ -48,20 +50,18 @@ const HdList = () => {
     }
     
     let content;
+
     if(isFetching){
         content = <div>Fetching Data</div>
-    }
-    else if(error){
+    } else if(error){
         content = <div>Error Fetchinf Hds!</div>
-    }
-    else{
+    } else{
         content = <Table data={data} config={config} keyFn={keyFn}/>
     }
     
-    console.log(data)
     return (
-        <div className='px-2 py-2 content-table'>
-            <Button onClick={handleAddHd} className="relative float-right w-10 my-2" primary rounded>+</Button>
+        <div className='content'>
+            <Button onClick={handleAddHd} className="btn-add" primary rounded>+</Button>
             {content}
         </div>
     );
