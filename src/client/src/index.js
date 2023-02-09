@@ -8,6 +8,8 @@ import './index.css';
 
 import App from './App';
 import HdCreate from './pages/HdCreate';
+import HdUpdate from './pages/HdUpdate';
+
 import store from './store'
 
 const router = createBrowserRouter([
@@ -18,6 +20,10 @@ const router = createBrowserRouter([
     {
         path: "/create",
         element: <HdCreate />
+    },
+    {
+        path: "/update/:id",
+        element: <HdUpdate />
     }
 ])
 

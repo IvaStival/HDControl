@@ -1,8 +1,4 @@
 
-body {
-    align-items: center;
-}
-
 h3 {
     font-size: 27px;
     margin-bottom: 20px;
@@ -19,6 +15,13 @@ input {
     border-color: rgb(215, 215, 215);
     border-style: solid;
     border-radius: 4px;
+    margin-left: 5px;
+    padding: 0.5rem;
+    font-size: 14px;
+}
+
+input::placeholder {
+    color: rgb(208, 208, 208)
 }
 
 .hd-create-content {
@@ -29,7 +32,7 @@ input {
     display: flex;
     flex-direction: row;
     margin-top: 28px;
-    float: right;
+    justify-content: flex-end;
 }
 
 .btn-create {

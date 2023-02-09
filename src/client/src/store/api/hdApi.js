@@ -8,7 +8,22 @@ const hdApi = createApi({
     }),
     endpoints(builder){
         return {
+            removeHd: builder.mutation({
+                invalidatesTags: (result, error, hd) => {
+                    return [{type: "Hd", id: hd.id}]
+                },
+                query: (hd) => {
+                    return {
+                        method: "DELETE",
+                        url: `/hds/${hd.id}`,
+                    }
+                },
+                
+            }),
             addHd: builder.mutation({
+                invalidatesTags: (result, error, hd) => {
+                    return [{type: 'Hd', id: hd.id}]
+                },
                 query: (hd) => {
                     return {
                         url: '/hds',
@@ -22,7 +37,35 @@ const hdApi = createApi({
                     }
                 }
             }),
+            updateHd: builder.mutation({
+                invalidatesTags: (result, error, hd) => {
+                    return [{type: 'Hd', id: hd.id}]
+                },
+                query: (hd) => {
+                    
+                    return {
+                        url: `/hds/${hd.id}`,
+                        method: 'PATCH',
+                        body: hd.inputs
+                    }
+                }
+            }),
+            fetchHd: builder.query({
+                query: (id) => {
+                    return {
+                        url: `/hds/${id}`,
+                        method: 'GET'
+                    }
+                }
+            }),
             fetchHds: builder.query({
+                providesTags: (result, error, hds) => {
+                    const tags = result.map((hd) => {
+                        return {type: "Hd", id: hd.id}
+                    })
+                    
+                    return tags;
+                }, 
                 query: () => {
                     return{
                         url: "/hds",
@@ -34,5 +77,5 @@ const hdApi = createApi({
     }
 })
 
-export const { useAddHdMutation, useFetchHdsQuery } = hdApi;
+export const { useAddHdMutation, useRemoveHdMutation, useUpdateHdMutation, useFetchHdsQuery, useFetchHdQuery } = hdApi;
 export { hdApi };

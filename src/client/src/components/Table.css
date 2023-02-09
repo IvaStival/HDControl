@@ -8,6 +8,7 @@
     border-spacing: 0 12px;
     border-collapse: separate;
     margin-top: -2px;
+    table-layout: fixed;
 }
 
 tbody {
@@ -47,6 +48,7 @@ th {
 
 .table-content tbody tr td:nth-child(1) {
     border-radius: 5px 0 0 5px;
+    
 }
 
 .table-content tbody tr td:nth-last-child(1) {

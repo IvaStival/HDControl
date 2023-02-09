@@ -16,4 +16,4 @@ const store = configureStore({
 setupListeners(store.dispatch);
 
 export default store;
-export { useFetchHdsQuery, useAddHdMutation } from './api/hdApi'; 
+export { useFetchHdsQuery, useRemoveHdMutation, useUpdateHdMutation, useAddHdMutation, useFetchHdQuery } from './api/hdApi'; 

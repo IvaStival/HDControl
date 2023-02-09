@@ -1,4 +1,4 @@
-import { useFetchHdsQuery } from '../store';
+import { useFetchHdsQuery, useRemoveHdMutation } from '../store';
 
 import Table from '../components/Table';
 import Button from '../components/Button';
@@ -9,7 +9,9 @@ import './HdList.css';
 
 const HdList = () => {
     const { data, error, isFetching } = useFetchHdsQuery();
+    const [ removeHd ] = useRemoveHdMutation()
     const navigate = useNavigate();
+    
     const config = [
         {
             label: "Hd Title",
@@ -31,10 +33,10 @@ const HdList = () => {
         {
             label: '',
             render: (hd) => (<div className='btn-container'>
-                                <Button className="btn-crud" primary rounded onClick={() => handleAddHd(hd)}>
+                                <Button className="btn-crud" primary rounded onClick={() => handleUpdateHd(hd)}>
                                     Edit
                                 </Button>
-                                <Button className="btn-crud btn-del" secondary rounded>
+                                <Button className="btn-crud btn-del" secondary rounded onClick={() => handleRemoveHd(hd)}>
                                     Delete
                                 </Button>
                             </div>)              
@@ -45,8 +47,16 @@ const HdList = () => {
         navigate('/create');
     }
 
+    const handleUpdateHd = (hd) => {
+        navigate(`/update/${hd.id}`);
+    }
+
+    const handleRemoveHd = (hd) => {
+        removeHd(hd);
+    }
+
     const keyFn = (hd) => {
-        return hd.title
+        return hd.id
     }
     
     let content;
@@ -54,7 +64,7 @@ const HdList = () => {
     if(isFetching){
         content = <div>Fetching Data</div>
     } else if(error){
-        content = <div>Error Fetchinf Hds!</div>
+        content = <div>Error Fetching Hds!</div>
     } else{
         content = <Table data={data} config={config} keyFn={keyFn}/>
     }

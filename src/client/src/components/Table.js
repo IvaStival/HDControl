@@ -4,11 +4,8 @@ import './Table.css';
 
 const Table = ({data, config, keyFn}) => {
     const renderedRows = data.map((row) => {
-        const renderedCells = config.map((column) => {
-            // const className = classname({
-            //                             "font-medium text-gray-900 whitespace-nowrap dark:text-white" : column.highLight
-            //                         });
-            return (<td key={column.label}>{column.render(row)}</td>)
+        const renderedCells = config.map((column, id) => {
+            return (<td key={id}>{column.render(row)}</td>)
         });
 
         return (
@@ -18,19 +15,19 @@ const Table = ({data, config, keyFn}) => {
         )
     })
 
-    const renderedHeaders = config.map((column) => {
+    const renderedHeaders = config.map((column, id) => {
         if(column.header){
-            return <Fragment key={column.name}>{column.header()}</Fragment>
+            return <Fragment>{column.header()}</Fragment>
         }
 
-        return <th key={column.label}>
+        return <th key={id}>
                 {column.label}
             </th>
     })
 
     return (
         <table className='table-content'>
-            <thead >
+            <thead>
                 <tr>
                     {renderedHeaders}
                 </tr>
