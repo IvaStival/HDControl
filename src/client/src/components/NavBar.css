@@ -1,0 +1,37 @@
+.nav {
+  position: fixed;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.nav-content {
+  position: relative;
+  margin: 30px 50px;
+}
+
+.nav-content h2 {
+  position: relative;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.nav-content ul {
+  position: relative;
+  margin-top: 10px;
+}
+
+.nav-content ul li {
+  color: #4b4b4bd8;
+  padding: 5px 10px;
+  width: 80px;
+}
+
+.nav-content ul li:hover {
+  color: black;
+  transform: scale(1.05);
+}

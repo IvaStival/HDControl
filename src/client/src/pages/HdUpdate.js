@@ -5,48 +5,47 @@ import { useFetchHdsQuery, useUpdateHdMutation } from "../store";
 import Panel from "../components/Panel";
 import Form from "../components/Form";
 
-import './index.css';
+import "./index.css";
 
 const HdUpdate = () => {
-    const { id } = useParams();
-    const { data, error, isError, isLoading } = useFetchHdsQuery();
-    const [ updateHd ] = useUpdateHdMutation(); 
-    const navigate = useNavigate();
+  const { id } = useParams();
+  const { data, error, isError, isLoading } = useFetchHdsQuery();
+  const [updateHd] = useUpdateHdMutation();
+  const navigate = useNavigate();
 
-    const handleSubmit = async (e, inputs) => {
-        e.preventDefault()
+  const handleSubmit = async (e, inputs) => {
+    e.preventDefault();
 
-        await updateHd({id, inputs})
-            .unwrap()
-            .then((response) => {
-                navigate('/')
-            })
-            .catch((error) => console.error(error))
-    }
+    await updateHd({ id, inputs })
+      .unwrap()
+      .then((response) => {
+        navigate("/");
+      })
+      .catch((error) => console.error(error));
+  };
 
-    let values = {}
+  let values = {};
 
-    if(isLoading) {
-        return <div>Loading ...</div>
-    } else if(isError) {
-        console.log(error)
-        return <div>Error on Fetching Data</div>
-    } else {
-        const item = data.find((item) => item.id === parseInt(id))
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  } else if (isError) {
+    console.log(error);
+    return <div>Error on Fetching Data</div>;
+  } else {
+    const item = data.find((item) => item.id === parseInt(id));
 
-        values = {
-            title: item.title,
-            size: item.size,
-            code: item.code
-        }
-    }
+    values = {
+      title: item.title,
+      size: item.size,
+      code: item.code,
+    };
+  }
 
-    return (
-        <Panel>
-            <Form isCreate={false} values={values} handleSubmit={handleSubmit} />
-        </Panel>
-        
-    );
+  return (
+    <Panel>
+      <Form isCreate={false} values={values} handleSubmit={handleSubmit} />
+    </Panel>
+  );
 };
 
 export default HdUpdate;

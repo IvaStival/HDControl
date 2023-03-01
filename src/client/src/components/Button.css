@@ -1,174 +1,177 @@
-@import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap");
 
 .btn {
-    background-color: #bcbcbc;
-    font-family: 'Muli', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 70px;
-    height: 35px;
-    margin: 0;
-    outline: 0;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.1);
+  background-color: #bcbcbc;
+  font-family: "Muli", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 35px;
+  margin: 0;
+  outline: 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .primary {
-    background-color: #0284c7;
-    color: #fff;
+  background-color: #0284c7;
+  color: #fff;
 }
 
 .primary:hover {
-    background-color: #0369a1;
+  background-color: #0369a1;
 }
 
 .primary:active {
-    background-color: #075985;
+  background-color: #075985;
 }
 
 .secondary {
-    background-color: #71717a;
-    color: #fff;
+  background-color: #71717a;
+  color: #fff;
 }
 
 .secondary:hover {
-    background-color: #52525b;
+  background-color: #52525b;
 }
 
 .secondary:active {
-    background-color: #404040;
+  background-color: #404040;
 }
 
 .success {
-    background-color: #16a34a;
-    color: #fff;
+  background-color: #16a34a;
+  color: #fff;
 }
 
 .success:hover {
-    background-color: #15803d;
+  background-color: #15803d;
 }
 
 .success:active {
-    background-color: #166534;
+  background-color: #166534;
 }
 
 .warning {
-    background-color: #ca8a04;
-    color: #fff;
+  background-color: #ca8a04;
+  color: #fff;
 }
 
 .warning:hover {
-    background-color: #a16207;
+  background-color: #a16207;
 }
 
 .warning:active {
-    background-color: #854d0e;
+  background-color: #854d0e;
 }
 
 .danger {
-    background-color: #ef4444;
-    color: #fff;
+  background-color: #ef4444;
+  color: #fff;
 }
 
 .danger:hover {
-    background-color: #dc2626;
+  background-color: #dc2626;
 }
 
 .danger:active {
-    background-color: #b91c1c;
+  background-color: #b91c1c;
 }
 
 .outline {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .rounded {
-    border-radius: 10px;
+  border-radius: 10px;
+}
+
+.rounded50 {
+  border-radius: 50%;
 }
 
 .primary.outline {
-    color: #0369a1;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #075985;
+  color: #0369a1;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #075985;
 }
 
-
 .primary.outline:hover {
-    background-color: #dadada;
-    color: #fff;
+  background-color: #dadada;
+  color: #fff;
 }
 
 .primary.outline:active {
-    background-color: #7c7c7c;
-    color: #fff
+  background-color: #7c7c7c;
+  color: #fff;
 }
 
 .secondary.outline {
-    color: #606067;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #71717a;
+  color: #606067;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #71717a;
 }
 
 .secondary.outline:hover {
-    background-color: #d6d6d6;
-    color: #fff;
+  background-color: #d6d6d6;
+  color: #fff;
 }
 
 .secondary.outline:active {
-    background-color: #7c7c7c;
-    color: #fff
+  background-color: #7c7c7c;
+  color: #fff;
 }
 
 .success.outline {
-    color: #15803d;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #106830;
+  color: #15803d;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #106830;
 }
 
 .success.outline:hover {
-    background-color: #35b162;
-    color: #fff;
+  background-color: #35b162;
+  color: #fff;
 }
 
 .success.outline:active {
-    background-color: #286e42;
-    color: #fff
+  background-color: #286e42;
+  color: #fff;
 }
 
 .warning.outline {
-    color: #ca8a04;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #ca8a04;
+  color: #ca8a04;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ca8a04;
 }
 
 .warning.outline:hover {
-    background-color: #d5a53c;
-    color: #fff;
+  background-color: #d5a53c;
+  color: #fff;
 }
 
 .warning.outline:active {
-    background-color: #b8810b;
-    color: #fff
+  background-color: #b8810b;
+  color: #fff;
 }
 
 .danger.outline {
-    color: #ef4444;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #ef4444;
+  color: #ef4444;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ef4444;
 }
 
 .danger.outline:hover {
-    background-color: #ed7171;
-    color: #fff;
+  background-color: #ed7171;
+  color: #fff;
 }
 
 .danger.outline:active {
-    background-color: #d43939;
-    color: #fff
+  background-color: #d43939;
+  color: #fff;
 }

@@ -1,13 +1,6 @@
 {
   "hds": [
     {
-      "title": "FFHD01",
-      "size": "2",
-      "code": "1313123123",
-      "qrcode": "QR1",
-      "id": 1
-    },
-    {
       "title": "FFHD002",
       "size": "4",
       "code": "NG42131",

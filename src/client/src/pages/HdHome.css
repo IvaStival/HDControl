@@ -1,0 +1,15 @@
+.home-content {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  width: calc(100% - 200px);
+  padding-left: 200px;
+
+  /* transform: translateX(200px); */
+}
+
+.text {
+  position: relative;
+  /* position: absolute; */
+  /* right: 0; */
+}
