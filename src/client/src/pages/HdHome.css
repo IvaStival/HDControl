@@ -1,15 +1,37 @@
 .home-content {
   position: relative;
   display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
-  width: calc(100% - 200px);
-  padding-left: 200px;
-
-  /* transform: translateX(200px); */
+  width: 100vw;
+  z-index: -1;
+  /* background-color: red; */
+  /* transform: translateX(100px); */
 }
 
-.text {
+.hd-lists {
   position: relative;
-  /* position: absolute; */
-  /* right: 0; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px;
+  height: 100%;
+  width: calc(100% - 245px);
+  transform: translateX(130px);
+}
+
+.hd-lists .list {
+  width: 400px;
+  height: 400px;
+  margin: 20px;
+  border-radius: 10px;
+  background-color: rgb(238, 237, 237);
+}
+
+.hd-lists .list h2 {
+  position: relative;
+  font-weight: bold;
+  font-size: 20px;
+  top: -35px;
 }
