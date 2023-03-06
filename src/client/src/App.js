@@ -1,15 +1,16 @@
-import React, { Children } from "react";
+import React from "react";
 
 import { Provider } from "react-redux";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
-import HdHome from "./pages/HdHome";
-import HdCreate from "./pages/HdCreate";
-import HdUpdate from "./pages/HdUpdate";
-import HdList from "./pages/HdList";
+import HdHome from "./pages/MainPages/Home/HdHome";
+import HdCreate from "./pages/MainPages/Hds/HdCRUDPages/HdCreate";
+import HdUpdate from "./pages/MainPages/Hds/HdCRUDPages/HdUpdate";
+import HdList from "./pages/MainPages/Hds/HdList";
 
 import store from "./store";
 import NavBar from "./components/NavBar";
+import HdUpdateLocation from "./pages/MainPages/LocationEdit/HdLocationEdit";
 
 const AppLayout = () => (
   <>
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/update/:id",
         element: <HdUpdate />,
+      },
+      {
+        path: "/update-loc/:id",
+        element: <HdUpdateLocation />,
       },
     ],
   },

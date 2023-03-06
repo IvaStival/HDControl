@@ -1,0 +1,20 @@
+.item-content {
+  position: relative;
+  top: 50px;
+}
+
+.list {
+  position: relative;
+  width: 400px;
+  margin: 20px;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.item-content h2 {
+  position: relative;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 30px;
+  bottom: -10px;
+}

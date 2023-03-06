@@ -1,0 +1,77 @@
+.location-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  background-color: #fff;
+  padding: 14px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1), 0px -2px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.location-item .hd-info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.hd-info div:last-child {
+  margin-left: auto;
+}
+
+.location-item .hd-name {
+  font-weight: bold;
+  color: #565656;
+}
+
+.location-item .size {
+  position: relative;
+  font-size: 15px;
+  top: 1px;
+  margin-left: 20px;
+}
+
+.location-item .job {
+  position: relative;
+  font-size: 12px;
+  top: 2px;
+  margin-left: 20px;
+}
+
+.location-item .status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.location-item .loc-item-edit {
+  display: flex;
+  width: 100px;
+  height: 0;
+  visibility: hidden;
+  align-items: center;
+  width: 100%;
+  opacity: 0;
+  padding-right: 8px;
+  transition: all 0.3s ease-in-out;
+  z-index: 2;
+}
+
+.loc-item-edit label {
+  white-space: nowrap;
+  margin-right: 5px;
+}
+
+.loc-item-edit input {
+  padding-left: 5px;
+  height: 30px;
+  width: 100%;
+}
+
+.loc-item-edit.visible {
+  height: 50px;
+  visibility: visible;
+  opacity: 100%;
+}

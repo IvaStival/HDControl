@@ -1,0 +1,29 @@
+.home-content {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: calc(100% - 250px);
+  z-index: 0;
+  top: 0;
+  left: 0;
+  overflow: scroll;
+  transform: translateX(250px);
+  /* margin-left: 70px; */
+  /* background-color: red; */
+  /* transform: translateX(100px); */
+}
+
+.hd-lists {
+  top: 0;
+  position: absolute;
+  display: flex;
+  min-width: 300px;
+}
+
+@media (max-width: 1200px) {
+  .hd-lists {
+    flex-direction: column;
+  }
+}

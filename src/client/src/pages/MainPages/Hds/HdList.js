@@ -1,7 +1,7 @@
-import { useFetchHdsQuery, useRemoveHdMutation } from "../store";
+import { useFetchHdsQuery, useRemoveHdMutation } from "../../../store";
 
-import Table from "../components/Table";
-import Button from "../components/Button";
+import Table from "../../../components/Table";
+import Button from "../../../components/Button";
 
 import { useNavigate } from "react-router-dom";
 

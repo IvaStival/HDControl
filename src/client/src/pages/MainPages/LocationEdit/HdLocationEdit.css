@@ -1,0 +1,13 @@
+.update-loc-content {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: calc(100% - 250px);
+  z-index: 0;
+  top: 0;
+  left: 0;
+  overflow: scroll;
+  transform: translateX(250px);
+}
