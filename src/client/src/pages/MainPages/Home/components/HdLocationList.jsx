@@ -10,6 +10,7 @@ const HdLocationList = ({ title, data }) => {
         name={item.name}
         ishome={item.ishome}
         size={item.size}
+        location={item.location}
         job={item.job}
       />
     );

@@ -1,4 +1,8 @@
-import { useFetchHdsQuery, useRemoveHdMutation } from "../../../store";
+import {
+  useFetchHdsQuery,
+  useRemoveHdMutation,
+  useRemoveLocMutation,
+} from "../../../store";
 
 import Table from "../../../components/Table";
 import Button from "../../../components/Button";
@@ -10,6 +14,7 @@ import "./HdList.css";
 const HdList = () => {
   const { data, error, isFetching } = useFetchHdsQuery();
   const [removeHd] = useRemoveHdMutation();
+  const [removeLoc] = useRemoveLocMutation();
   const navigate = useNavigate();
 
   const config = [
@@ -63,8 +68,11 @@ const HdList = () => {
     navigate(`/update/${hd.id}`);
   };
 
-  const handleRemoveHd = (hd) => {
-    removeHd(hd);
+  const handleRemoveHd = async (hd) => {
+    // THIS WILL REMOVE BOTH THE DATA hds INFO AND locs INFO
+    await removeHd(hd)
+      .unwrap()
+      .catch((error) => console.error(error));
   };
 
   const keyFn = (hd) => {
