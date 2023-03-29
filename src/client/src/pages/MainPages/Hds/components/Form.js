@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import Button from "../../../../components/Button";
+import Field from "../../../../components/Field";
 
 import "./Form.css";
 
@@ -27,39 +28,29 @@ const Form = ({
   return (
     <div className="hd-create-content">
       <h3>{`${isCreate ? "Create New HD" : "Update HD"}`}</h3>
+      <Field
+        name="title"
+        title="Title"
+        onChange={handleOnChange}
+        defaultValue={inputs.title || ""}
+        placeholder="FFHD01"
+      />
 
-      <form onSubmit={handleSubmit}>
-        <label>
-          Title
-          <input
-            type="text"
-            name="title"
-            value={inputs.title || ""}
-            onChange={handleOnChange}
-            placeholder="FFHD01"
-          />
-        </label>
-        <label>
-          Size
-          <input
-            type="number"
-            name="size"
-            value={inputs.size || ""}
-            onChange={handleOnChange}
-            placeholder="4 TB"
-          />
-        </label>
-        <label>
-          Code
-          <input
-            type="text"
-            name="code"
-            value={inputs.code || ""}
-            onChange={handleOnChange}
-            placeholder="NGA123"
-          />
-        </label>
-      </form>
+      <Field
+        name="size"
+        title="Size"
+        onChange={handleOnChange}
+        defaultValue={inputs.size || ""}
+        placeholder="4"
+      />
+
+      <Field
+        name="code"
+        title="Code"
+        onChange={handleOnChange}
+        defaultValue={inputs.code || ""}
+        placeholder="GTA12321"
+      />
 
       <div className="btns">
         <Button secondary outline rounded onClick={handleClick}>

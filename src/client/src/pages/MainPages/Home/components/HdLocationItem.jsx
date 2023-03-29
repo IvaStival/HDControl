@@ -1,5 +1,6 @@
 import "./HdLocationItem.css";
 import Button from "../../../../components/Button";
+import Field from "../../../../components/Field";
 import { useUpdateLocMutation } from "../../../../store";
 import { useState } from "react";
 
@@ -56,24 +57,19 @@ const HdLocationItem = ({ id, name, size, job, ishome, location }) => {
         className={`loc-item-edit ${editVisible ? "visible" : ""}`}
       >
         <div className="content">
-          <div className="field job-field">
-            <label>Job</label>
-            <input
-              onChange={handleJobInputChange}
-              onClick={handleInputClick}
-              type="text"
-              defaultValue={editJob}
-            />
-          </div>
-          <div className="field location-field">
-            <label>Location</label>
-            <input
-              onChange={handleLocInputChange}
-              onClick={handleInputClick}
-              type="text"
-              defaultValue={editLocation}
-            />
-          </div>
+          <Field
+            title="Job"
+            defaultValue={editJob}
+            onChange={handleJobInputChange}
+            onClick={handleInputClick}
+          />
+          <Field
+            title="Location"
+            defaultValue={editLocation}
+            onChange={handleLocInputChange}
+            onClick={handleInputClick}
+          />
+
           <Button onClick={handleEditClick} rounded primary>
             Edit
           </Button>

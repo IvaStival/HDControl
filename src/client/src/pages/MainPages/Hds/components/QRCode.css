@@ -1,0 +1,24 @@
+.actions-btns {
+  display: flex;
+  flex-direction: row;
+}
+.action-btn {
+  margin-right: 5px;
+}
+
+.action-btn.action-down-btn {
+  width: 90px;
+}
+
+.hd-title {
+  font-size: 30px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: rgb(44, 48, 124);
+}
+
+.qrcode-img {
+  width: 300px;
+  height: 300px;
+  margin: 20px;
+}

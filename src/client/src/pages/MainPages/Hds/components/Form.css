@@ -1,5 +1,6 @@
 .hd-create-content {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
 }
 
 .hd-create-content h3 {
@@ -8,7 +9,7 @@
   font-weight: bold;
 }
 
-form {
+.hd-create-content form {
   display: flex;
   flex-direction: column;
   margin-top: 5px;
@@ -31,7 +32,7 @@ form {
 .btns {
   display: flex;
   flex-direction: row;
-  margin-top: 5px;
+  margin-top: 15px;
   justify-content: flex-end;
   font-size: 14px;
 }

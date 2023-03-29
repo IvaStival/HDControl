@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 
-import { useAddHdMutation, useAddLocMutation } from "../../../../store";
+import { useAddHdMutation, useAddLocMutation } from "../../../store";
 
-import Panel from "../../../../components/Panel";
-import Form from "../components/Form";
+import Panel from "../../../components/Panel";
+import Form from "./components/Form";
 
-import "../../../index.css";
+import "../../index.css";
 
 const HdCreate = () => {
   const [addHd] = useAddHdMutation();

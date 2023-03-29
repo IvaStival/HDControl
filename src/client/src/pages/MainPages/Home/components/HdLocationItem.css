@@ -59,11 +59,9 @@
 
 .location-item .loc-item-edit {
   display: flex;
-  width: 100px;
   height: 0;
-  visibility: hidden;
-  align-items: center;
   width: 100%;
+  visibility: hidden;
   opacity: 0;
   padding-right: 8px;
   transition: all 0.3s ease-in-out;
@@ -72,18 +70,19 @@
 }
 
 .loc-item-edit .content {
-  position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  width: 100%;
 }
 
 .loc-item-edit .content .field {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .loc-item-edit .content label {
-  justify-content: flex-start;
+  width: 54px;
+  text-align: right;
   white-space: nowrap;
   margin-right: 5px;
   font-size: 11px;
@@ -92,20 +91,22 @@
 
 .loc-item-edit .content input {
   padding-left: 5px;
-  height: 30px;
-  width: 130px;
+  height: 25px;
+  width: 100%;
   font-size: 12px;
   outline: none;
 }
 
 .loc-item-edit .content button {
   position: relative;
-  margin-top: 20.5px;
+  margin-left: 270px;
+  margin-top: 20px;
 }
 
 .loc-item-edit.visible {
   position: relative;
-  height: 50px;
+  height: 120px;
+
   visibility: visible;
   opacity: 100%;
   margin-top: 15px;

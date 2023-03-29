@@ -4,13 +4,13 @@ import { Provider } from "react-redux";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import HdHome from "./pages/MainPages/Home/HdHome";
-import HdCreate from "./pages/MainPages/Hds/HdCRUDPages/HdCreate";
-import HdUpdate from "./pages/MainPages/Hds/HdCRUDPages/HdUpdate";
+import HdCreate from "./pages/MainPages/Hds/HdCreate";
+import HdUpdate from "./pages/MainPages/Hds/HdUpdate";
 import HdList from "./pages/MainPages/Hds/HdList";
 
 import store from "./store";
 import NavBar from "./components/NavBar";
-import HdUpdateLocation from "./pages/MainPages/LocationEdit/HdLocationEdit";
+// import HdUpdateLocation from "./pages/MainPages/LocationEdit/HdLocationEdit";
 import HdLocationEdit from "./pages/MainPages/LocationEdit/HdLocationEdit";
 
 const AppLayout = () => (

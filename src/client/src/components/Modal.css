@@ -1,0 +1,37 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(125, 125, 125, 0.8);
+  height: 100vh;
+  width: 100vw;
+}
+
+.modal-close {
+  inset: 0px;
+  background-color: rgb(209 213 219);
+}
+
+.modal-content {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* inset: 160px; */
+  border-radius: 8px;
+  background-color: white;
+}
+
+.modal-children {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}

@@ -1,11 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
 
-import { useFetchHdsQuery, useUpdateHdMutation } from "../../../../store";
+import { useFetchHdsQuery, useUpdateHdMutation } from "../../../store";
 
-import Panel from "../../../../components/Panel";
-import Form from "../components/Form";
+import Panel from "../../../components/Panel";
+import Form from "./components/Form";
 
-import "../../../index.css";
+import "../../index.css";
 
 const HdUpdate = () => {
   const { id } = useParams();

@@ -1,21 +1,31 @@
-import {
-  useFetchHdsQuery,
-  useRemoveHdMutation,
-  useRemoveLocMutation,
-} from "../../../store";
+import { useFetchHdsQuery, useRemoveHdMutation } from "../../../store";
 
 import Table from "../../../components/Table";
 import Button from "../../../components/Button";
+import MyQRCode from "./components/QRCode";
 
 import { useNavigate } from "react-router-dom";
 
 import "./HdList.css";
+import { useState } from "react";
 
 const HdList = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [currentID, setCurrentID] = useState();
   const { data, error, isFetching } = useFetchHdsQuery();
   const [removeHd] = useRemoveHdMutation();
-  const [removeLoc] = useRemoveLocMutation();
   const navigate = useNavigate();
+
+  const handleOpen = (e, id) => {
+    setShowModal(true);
+    setCurrentID(id);
+  };
+
+  const handleClose = (e) => {
+    setShowModal(false);
+  };
+
+  const modal = <MyQRCode id={currentID} handleClose={handleClose} />;
 
   const config = [
     {
@@ -33,7 +43,16 @@ const HdList = () => {
     },
     {
       label: "QR",
-      render: (hd) => hd.qrcode,
+      render: (hd) => (
+        <Button
+          onClick={(e) => handleOpen(e, hd.id)}
+          className="btn-crud"
+          primary
+          rounded
+        >
+          QR
+        </Button>
+      ),
     },
     {
       label: "",
@@ -86,11 +105,19 @@ const HdList = () => {
   } else if (error) {
     content = <div>Error Fetching Hds!</div>;
   } else {
-    content = <Table data={data} config={config} keyFn={keyFn} />;
+    content = (
+      <Table
+        data={data}
+        config={config}
+        keyFn={keyFn}
+        className="table-content"
+      />
+    );
   }
 
   return (
     <div className="hds-content">
+      {showModal && modal}
       <Button onClick={handleAddHd} className="btn-add" primary rounded50>
         +
       </Button>

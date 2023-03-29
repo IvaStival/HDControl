@@ -110,3 +110,4 @@ npm install --save react-router-dom
 npm install --save json-server
 npm install --save redux-thunk
 npm install --save lodash
+npm install --save qrcode
