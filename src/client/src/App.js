@@ -11,7 +11,7 @@ import HdList from "./pages/MainPages/Hds/HdList";
 import store from "./store";
 import NavBar from "./components/NavBar";
 // import HdUpdateLocation from "./pages/MainPages/LocationEdit/HdLocationEdit";
-import HdLocationEdit from "./pages/MainPages/LocationEdit/HdLocationEdit";
+import EditLocationPage from "./pages/UserPages/EditLocationPage";
 
 const AppLayout = () => (
   <>
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    element: <HdLocationEdit />,
+    element: <EditLocationPage />,
     path: "/edit-loc/:id",
   },
 ]);

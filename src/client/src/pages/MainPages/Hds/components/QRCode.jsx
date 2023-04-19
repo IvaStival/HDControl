@@ -7,7 +7,7 @@ import "./QRCode.css";
 
 import { useState } from "react";
 
-const MyQRCode = ({ handleClose, actionBar, id }) => {
+const MyQRCode = ({ handleClose, actionBar, id, name }) => {
   const [qr, setQR] = useState("");
   const action = (
     <div className="actions-btns">
@@ -19,9 +19,15 @@ const MyQRCode = ({ handleClose, actionBar, id }) => {
         onClick={handleClose}
         success
         rounded
+        download
+        href={qr}
+        file_name={`${name}.png`}
       >
         Download
       </Button>
+      {/* <a href={qr} onClick={handleClose} download={`FFHD0${id}.png`}>
+        Download
+      </a> */}
     </div>
   );
 
@@ -33,7 +39,7 @@ const MyQRCode = ({ handleClose, actionBar, id }) => {
   return (
     <div className="qrcode-content">
       <Modal onClose={handleClose} actionBar={action}>
-        <h1 className="hd-title">FFHD0{id}</h1>
+        <h1 className="hd-title">{name}</h1>
         <img className="qrcode-img" src={qr} alt={id} />
       </Modal>
     </div>

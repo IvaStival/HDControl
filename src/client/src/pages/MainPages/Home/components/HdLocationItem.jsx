@@ -36,7 +36,6 @@ const HdLocationItem = ({ id, name, size, job, ishome, location }) => {
       },
     })
       .unwrap()
-      .then((response) => console.log(response))
       .catch((error) => console.error(error));
   };
 
@@ -71,7 +70,7 @@ const HdLocationItem = ({ id, name, size, job, ishome, location }) => {
           />
 
           <Button onClick={handleEditClick} rounded primary>
-            Edit
+            Save
           </Button>
         </div>
       </div>

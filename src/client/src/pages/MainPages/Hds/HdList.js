@@ -25,7 +25,13 @@ const HdList = () => {
     setShowModal(false);
   };
 
-  const modal = <MyQRCode id={currentID} handleClose={handleClose} />;
+  const modal = (
+    <MyQRCode
+      id={currentID}
+      name={"FFHD" + currentID}
+      handleClose={handleClose}
+    />
+  );
 
   const config = [
     {

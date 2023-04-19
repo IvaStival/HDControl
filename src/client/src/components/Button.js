@@ -14,6 +14,9 @@ const Button = ({
   rounded50,
   loading,
   className,
+  download,
+  href,
+  file_name,
   ...rest
 }) => {
   const classes = ClassName("btn", className, {
@@ -26,11 +29,28 @@ const Button = ({
     danger: danger,
     outline: outline,
   });
-  return (
-    <button {...rest} className={classes}>
-      {children}
-    </button>
-  );
+
+  // USE AN a TAG TO ENABLE TO DOWNLOAD A FILE
+  if (download) {
+    if (!href || !file_name) {
+      console.error(
+        "You must to set the data and file_name props when use download parameter."
+      );
+      return;
+    }
+    return (
+      <a href={href} download={file_name} {...rest} className={classes}>
+        {children}
+      </a>
+    );
+    // ELSE RETURN A COMMON BUTTON
+  } else {
+    return (
+      <button {...rest} className={classes}>
+        {children}
+      </button>
+    );
+  }
 };
 
 Button.protoTypes = {

@@ -1,13 +1,14 @@
 .field {
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 350px;
 }
 
 .field label {
   display: flex;
   align-items: center;
-  width: 40px;
+  width: 55px;
   text-align: right;
   white-space: nowrap;
   margin-right: 5px;
@@ -20,7 +21,28 @@
   border-width: 1px;
   padding-left: 5px;
   height: 25px;
-  width: 100%;
+  width: 350px;
   font-size: 12px;
   outline: none;
+}
+
+.field .desc {
+  width: 100%;
+}
+
+.field textarea {
+  border-radius: 5px;
+  resize: none;
+  width: 100%;
+  outline: 1px solid #eae8e8;
+}
+
+@media (max-width: 500px) {
+  .field {
+    width: 240px;
+  }
+
+  .field input {
+    width: 210px;
+  }
 }
