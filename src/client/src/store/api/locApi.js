@@ -34,6 +34,9 @@ const locApi = createApi({
               mail: loc.mail,
               date: loc.date,
               job: loc.job,
+              size: loc.size, // The total files copieded to HD
+              type: loc.type, // Backup, RAW or none
+              description: loc.description,
               hdId: loc.hd_id,
             },
           };
@@ -63,6 +66,21 @@ const locApi = createApi({
         query: () => {
           return {
             url: "/locs?_expand=hd",
+            method: "GET",
+          };
+        },
+      }),
+      fetchLocWithSpecificHd: builder.query({
+        providesTags: (result, error, locs) => {
+          const tags = result.map((loc) => {
+            return { type: "loc", id: loc.id };
+          });
+
+          return tags;
+        },
+        query: (id) => {
+          return {
+            url: `/locs?_expand=hd&hdId=${id}`,
             method: "GET",
           };
         },
@@ -99,6 +117,7 @@ export const {
   useRemoveLocMutation,
   useUpdateLocMutation,
   useFetchLocWithHdsQuery,
+  useFetchLocWithSpecificHdQuery,
   useFetchLocsQuery,
   useFetchLocQuery,
 } = locApi;

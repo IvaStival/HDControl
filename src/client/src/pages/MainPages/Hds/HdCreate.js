@@ -20,6 +20,8 @@ const HdCreate = () => {
       mail: "",
       date: "",
       job: "",
+      type: "none",
+      size: "0",
       hd_id: hd_id,
     };
 

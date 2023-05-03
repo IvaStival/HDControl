@@ -1,0 +1,16 @@
+.edit-loc-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  top: 100px;
+  height: 100vh;
+  overflow: hidden;
+  padding: 10px;
+  position: relative;
+}
+
+.label-group {
+  margin-bottom: 10px;
+  width: 400px;
+}

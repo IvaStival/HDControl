@@ -30,6 +30,7 @@ export {
   useRemoveLocMutation,
   useUpdateLocMutation,
   useFetchLocWithHdsQuery,
+  useFetchLocWithSpecificHdQuery,
   useFetchLocQuery,
   useFetchLocsQuery,
 } from "./api/locApi";

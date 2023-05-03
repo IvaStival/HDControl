@@ -7,6 +7,7 @@ const Field = ({
   title,
   name,
   type = "text",
+  simbol = "",
   defaultValue,
   placeholder = "",
   description,
@@ -47,9 +48,7 @@ const Field = ({
           marginLeft: type === "number" ? "-6px" : "",
         }}
       />
-      <span style={{ fontSize: font.M, color: "#lightgray" }}>
-        {type === "number" ? "TB" : ""}
-      </span>
+      <span style={{ fontSize: font.S, color: "#lightgray" }}>{simbol}</span>
     </div>
   );
 };
