@@ -3,6 +3,8 @@ import Button from "../../../../components/Button";
 
 import { qrcodeGenerator } from "../../../../utils/qrcodeGenerator";
 
+import { url, port } from "../../../../utils/constants";
+
 import "./QRCode.css";
 
 import { useState } from "react";
@@ -33,7 +35,7 @@ const MyQRCode = ({ handleClose, actionBar, id, name }) => {
 
   // CALL THE qrcodeGenerator
   (async function () {
-    setQR(await qrcodeGenerator(`http://localhost:3000/loc/${id}`)); // 121
+    setQR(await qrcodeGenerator(`http://${url}:${port}/edit-loc/${id}`)); // 121
   })();
 
   return (
