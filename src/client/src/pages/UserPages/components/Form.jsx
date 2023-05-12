@@ -9,18 +9,42 @@ import Group from "../../../components/Group";
 import { font, space, direction, title } from "../../../styles";
 
 import "./Form.css";
+import { useUpdateLocMutation } from "../../../store";
+import { getDate } from "../../../utils/getDate";
 
 const Form = ({ data }) => {
+  const [location, setLocation] = useState(data.location);
+  const [job, setJob] = useState(data.job);
+  const [size, setSize] = useState(data.size);
+  const [description, setDescription] = useState(data.description);
   const [bkpCheck, setBkpCheck] = useState(
     data.type === "backup" ? true : false
   );
   const [masterCheck, setMasterCheck] = useState(
     data.type === "raw" ? true : false
   );
-  let bkp_status;
 
-  const handleSave = (e) => {
-    console.log(bkpCheck);
+  const [updateLocation] = useUpdateLocMutation();
+
+  const handleSave = async (e) => {
+    const date = getDate();
+    console.log(date);
+
+    let data_type = "";
+    if (bkpCheck) data_type = "backup";
+    else if (masterCheck) data_type = "raw";
+
+    await updateLocation({
+      id: data.id,
+      inputs: {
+        location: location,
+        job: job,
+        size: size,
+        type: data_type,
+        description: description,
+        date: date,
+      },
+    });
   };
 
   const handleBkpChange = (e) => {
@@ -31,49 +55,76 @@ const Form = ({ data }) => {
     setMasterCheck(!masterCheck);
   };
 
+  const handleLocation = (e) => {
+    setLocation(e.target.value);
+  };
+  const handleJob = (e) => {
+    setJob(e.target.value);
+  };
+  const handleSize = (e) => {
+    setSize(e.target.value);
+  };
+  const handleDescription = (e) => {
+    setDescription(e.target.value);
+  };
+
+  const resetForm = (e) => {
+    setLocation("");
+    setJob("");
+    setSize("");
+    setDescription("");
+    setBkpCheck(false);
+    setMasterCheck(false);
+  };
+
   return (
     <div className="edit-loc-content">
       <div className="label-group">
         <label style={{ fontSize: title.M }}>FFHD0{data.id}</label>
       </div>
       <Panel>
-        <Field title="Location" defaultValue={data.location} />
-        <Field title="Job" defaultValue={data.job} />
+        <Field title="Location" onChange={handleLocation} value={location} />
+        <Field title="Job" value={job} onChange={handleJob} />
         <Field
           title="Size"
           type="number"
           simbol="TB"
-          defaultValue={data.size}
+          value={size}
+          onChange={handleSize}
         />
         <Group mR={space.M} dir={direction.row}>
           <CheckBox
             disable={masterCheck}
             handleChange={handleBkpChange}
             title="Backup"
-            getStatus={bkp_status}
             tS={font.S}
-            defaultValue={bkpCheck}
+            value={bkpCheck}
           />
           <CheckBox
             disable={bkpCheck}
             title="Master"
             handleChange={handleMasterChange}
-            getStatus={bkp_status}
             tS={font.S}
             mL={space.L}
-            defaultValue={masterCheck}
+            value={masterCheck}
           />
         </Group>
         <Field
           title="Description"
           description
-          defaultValue={data.description}
+          value={description}
+          onChange={handleDescription}
         />
         <Group dir={direction.row}>
           <Button primary rounded onClick={handleSave}>
             Save
           </Button>
-          <Button secondary rounded style={{ marginLeft: space.S }}>
+          <Button
+            secondary
+            rounded
+            style={{ marginLeft: space.S }}
+            onClick={resetForm}
+          >
             Reset
           </Button>
         </Group>

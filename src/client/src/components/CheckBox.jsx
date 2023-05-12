@@ -4,7 +4,7 @@ import "./CheckBox.css";
 const CheckBox = ({
   handleChange,
   disable,
-  defaultValue,
+  value,
   title,
   tS = font.S,
   mL,
@@ -19,7 +19,7 @@ const CheckBox = ({
         onChange={handleChange}
         type="checkbox"
         disabled={disable}
-        checked={defaultValue}
+        checked={value}
       />
       <label htmlFor="" style={{ fontSize: tS, marginLeft: space.S }}>
         {title}

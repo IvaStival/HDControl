@@ -1,9 +1,10 @@
+import { url, db_port } from "../../utils/constants";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const hdApi = createApi({
   reducerPath: "hds",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3001",
+    baseUrl: `http://${url}:${db_port}`,
   }),
   endpoints(builder) {
     return {

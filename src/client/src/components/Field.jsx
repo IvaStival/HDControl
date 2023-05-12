@@ -9,6 +9,7 @@ const Field = ({
   type = "text",
   simbol = "",
   defaultValue,
+  value,
   placeholder = "",
   description,
 }) => {
@@ -23,7 +24,8 @@ const Field = ({
             name={name}
             onChange={onChange}
             onClick={onClick}
-            defaultValue={defaultValue}
+            // defaultValue={defaultValue}
+            value={value}
             placeholder={placeholder}
             style={{ height: "100px", fontSize: font.S, padding: space.M }}
           />
@@ -39,7 +41,8 @@ const Field = ({
         onChange={onChange}
         onClick={onClick}
         type={type}
-        defaultValue={defaultValue}
+        // defaultValue={defaultValue}
+        value={value}
         placeholder={placeholder}
         min={type === "number" ? 0 : ""}
         max={type === "number" ? 10 : ""}
