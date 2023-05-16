@@ -1,0 +1,70 @@
+.login-area {
+  position: relative;
+  background-color: #282828;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 340px;
+  height: 100vh;
+}
+
+.login-common-style {
+  color: white;
+}
+
+.login-area h1 {
+  margin-bottom: 30px;
+}
+
+.login-area .forgot-password {
+  display: flex;
+  width: 250px;
+  justify-content: flex-end;
+  color: rgb(186, 186, 186);
+  margin-top: 5px;
+}
+
+.login-area .forgot-password:hover {
+  color: rgb(80, 132, 227);
+}
+
+.login-area button {
+  margin-top: 20px;
+  width: 250px;
+}
+
+.login-area .login-info-content {
+  margin-top: 30px;
+}
+
+.login-area .login-info-content div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10px;
+  color: rgb(186, 186, 186);
+}
+
+.login-form-control {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form-control input {
+  border: 0;
+  outline: none;
+  padding-left: 5px;
+  width: 250px;
+  height: 25px;
+  color: black;
+}
+
+.login-form-control label {
+  margin-bottom: 5px;
+}
+
+.login-form-control.pass {
+  margin-top: 10px;
+}

@@ -9,6 +9,7 @@ const font = {
   S: "12px",
   M: "14px",
   L: "17px",
+  XL: "23px",
 };
 
 const headline = {
