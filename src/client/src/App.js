@@ -7,11 +7,11 @@ import HdHome from "./pages/MainPages/Home/HdHome";
 import HdCreate from "./pages/MainPages/Hds/HdCreate";
 import HdUpdate from "./pages/MainPages/Hds/HdUpdate";
 import HdList from "./pages/MainPages/Hds/HdList";
+import EditLocationPage from "./pages/UserPages/EditLocationPage";
+import LoginPage from "./pages/Login/LoginPage";
 
 import store from "./store";
 import NavBar from "./components/NavBar";
-// import HdUpdateLocation from "./pages/MainPages/LocationEdit/HdLocationEdit";
-import EditLocationPage from "./pages/UserPages/EditLocationPage";
 
 const AppLayout = () => (
   <>
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     element: <AppLayout />,
     children: [
       {
-        path: "/",
+        path: "/home",
         element: <HdHome />,
       },
       {
@@ -41,6 +41,10 @@ const router = createBrowserRouter([
         element: <HdUpdate />,
       },
     ],
+  },
+  {
+    path: "/",
+    element: <LoginPage />,
   },
   {
     element: <EditLocationPage />,
