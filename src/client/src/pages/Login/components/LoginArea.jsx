@@ -1,29 +1,57 @@
 import "./LoginArea.css";
 import { font, title } from "../../../styles";
 import Button from "../../../components/Button";
+import { useState } from "react";
 
 const LoginArea = () => {
+  const [inputs, setInputs] = useState({});
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(inputs);
+  };
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setInputs((old_values) => ({ ...old_values, [name]: value }));
+  };
+
   return (
     <div className="login-area">
       <h1 className="login-common-style" style={{ fontSize: title.L }}>
         HD Control
       </h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="login-form-control login-common-style">
           <label style={{ fontSize: font.S }}>Email Address</label>
-          <input style={{ fontSize: font.S }} type="text" required />
+          <input
+            onChange={handleChange}
+            style={{ fontSize: font.S }}
+            type="text"
+            name="email"
+            required
+          />
         </div>
         <div className="login-form-control login-common-style pass">
           <label style={{ fontSize: font.S }}>Password</label>
-          <input type="password" required />
+          <input
+            onChange={handleChange}
+            type="password"
+            name="password"
+            required
+          />
         </div>
+        <div className="forgot-password">
+          <a href="/" style={{ fontSize: font.S }}>
+            Forgot your password?
+          </a>
+        </div>
+        <Button primary>Login</Button>
       </form>
-      <div className="forgot-password">
-        <a href="/" style={{ fontSize: font.S }}>
-          Forgot your password?
-        </a>
-      </div>
-      <Button primary>Login</Button>
+
       <div className="login-info-content">
         <div>
           <p style={{ fontSize: font.S }}>Problem to access?</p>
