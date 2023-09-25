@@ -1,9 +1,0 @@
-{
-  "port": "3030",
-  "session": {
-    "secret": "G9eau9tTCSsrJ6dqOhKZkGelqM2dzMqci6QitSmdL3UdLg6puRRdiHrwyaLCFVSDocfZDsk2/1PS6F+6"
-  },
-  "cookie": {
-    "secret": "gJ9bfhpnq0D8Zvw5jKkIagHrabQr4MmHFmKS14VAh++jfAev6Nizk3xteLFG/dNd5MVN6ZVZr58siwWs"
-  }
-}
