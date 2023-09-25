@@ -11,8 +11,9 @@ import EditLocationPage from "./pages/UserPages/EditLocationPage/EditLocationPag
 import LoginPage from "./pages/Login/LoginPage/LoginPage";
 
 import store from "./store";
-import NavBar from "./components/common/NavBar/NavBar";
+import NavBar from "./pages/NavBar/NavBar";
 import RegisterPage from "./pages/Login/RegisterPage/RegisterPage";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 const AppLayout = () => (
   <>
@@ -23,10 +24,14 @@ const AppLayout = () => (
 
 const router = createBrowserRouter([
   {
-    element: <AppLayout />,
+    element: (
+      <ProtectedRoute>
+        <AppLayout />
+      </ProtectedRoute>
+    ),
     children: [
       {
-        path: "/home",
+        path: "/",
         element: <HdHome />,
       },
       {
@@ -44,7 +49,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/",
+    path: "/login",
     element: <LoginPage />,
   },
   {

@@ -1,24 +1,11 @@
+import { useSelector } from "react-redux";
+
 import "./LoginArea.css";
 import { font, title } from "../../../styles";
 import Button from "../../../components/common/Button/Button";
-import { useState } from "react";
-import GoogleAuth from "../../auth/GoogleAuth";
 
-const LoginArea = () => {
-  const [inputs, setInputs] = useState({});
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log(inputs);
-  };
-
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-
-    setInputs((old_values) => ({ ...old_values, [name]: value }));
-  };
+const LoginArea = ({ handleSubmit, handleChange, inputs }) => {
+  const { loading } = useSelector((state) => state.user);
 
   return (
     <div className="login-area">
@@ -33,19 +20,24 @@ const LoginArea = () => {
             style={{ fontSize: font.S }}
             type="text"
             name="email"
+            placeholder="name@company.com"
           />
         </div>
         <div className="login-form-control login-common-style pass">
           <label style={{ fontSize: font.S }}>Password</label>
-          <input onChange={handleChange} type="password" name="password" />
+          <input
+            onChange={handleChange}
+            type="password"
+            name="password"
+            placeholder="••••••••"
+          />
         </div>
         <div className="login-links">
           <a href="/" style={{ fontSize: font.S }}>
             Forgot your password?
           </a>
         </div>
-        <Button primary>Login</Button>
-        <GoogleAuth />
+        <Button primary>{loading ? "Loading ..." : "Login"}</Button>
       </form>
 
       <div className="login-info-content">

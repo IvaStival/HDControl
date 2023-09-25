@@ -4,7 +4,7 @@ import Field from "../../../components/common/Field/Field";
 import Group from "../../../components/common/Group/Group";
 import Panel from "../../../components/common/Panel/Panel";
 
-import { font } from "../../../styles";
+import { font, space, colors } from "../../../styles";
 
 import "./RegisterPage.css";
 
@@ -18,6 +18,7 @@ const RegisterPage = () => {
   };
 
   const [inputs, setInputs] = useState(values);
+  const [wrongPass, setWrongPass] = useState(false);
 
   const handleOnChangeInputs = (e) => {
     const name = e.target.name;
@@ -27,6 +28,13 @@ const RegisterPage = () => {
   };
 
   const handleRegister = (e) => {
+    if (inputs["pass"] !== inputs["confirm_pass"]) {
+      setWrongPass(true);
+      console.log("The passwords are differents.");
+    } else {
+      setWrongPass(false);
+    }
+
     console.log(inputs);
   };
 
@@ -34,21 +42,49 @@ const RegisterPage = () => {
     <div className="register-content">
       <Panel>
         <h3>Regiter</h3>
-        <Field name="name" title="Name" onChange={handleOnChangeInputs} />
-        <Field name="last" title="Last Name" onChange={handleOnChangeInputs} />
-        <Field name="email" title="Email" onChange={handleOnChangeInputs} />
         <Field
-          type="password"
-          name="pass"
-          title="Password"
+          top_title
+          name="name"
+          title="Name"
           onChange={handleOnChangeInputs}
         />
         <Field
-          type="password"
-          name="confirm_pass"
-          title="Confirm"
+          top_title
+          name="last"
+          title="Last Name"
           onChange={handleOnChangeInputs}
         />
+        <Field
+          top_title
+          name="email"
+          title="Email"
+          onChange={handleOnChangeInputs}
+        />
+        <Group dir="column" mT={space.L}>
+          <Field
+            bg_color={wrongPass ? colors.danger : ""}
+            top_title
+            type="password"
+            name="pass"
+            title="Password"
+            onChange={handleOnChangeInputs}
+          />
+          <Field
+            bg_color={wrongPass ? colors.danger : ""}
+            top_title
+            type="password"
+            name="confirm_pass"
+            title="Confirm"
+            onChange={handleOnChangeInputs}
+          />
+          {wrongPass ? (
+            <div style={{ fontSize: font.S, top: "-10px" }}>
+              Passwords not matching
+            </div>
+          ) : (
+            ""
+          )}
+        </Group>
 
         <Group justifyContent="flex-end">
           <Button outline rounded style={{ fontSize: font.M }}>

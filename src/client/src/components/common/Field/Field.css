@@ -3,6 +3,7 @@
   flex-direction: row;
   align-items: center;
   width: 350px;
+  position: relative;
 }
 
 .field label {
@@ -16,6 +17,11 @@
   margin-left: 5px;
 }
 
+.field label.top_title {
+  position: absolute;
+  top: -13px;
+}
+
 .field input {
   margin: 4px;
   border-width: 1px;
@@ -24,6 +30,11 @@
   width: 350px;
   font-size: 12px;
   outline: none;
+}
+
+.field input.top_title {
+  width: 350px;
+  margin-bottom: 20px;
 }
 
 .field .desc {
