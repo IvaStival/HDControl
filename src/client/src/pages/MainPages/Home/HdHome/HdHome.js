@@ -1,11 +1,8 @@
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-
 import HdLocationList from "../../../../components/home/HdLocationList/HdLocationList";
 import { useFetchLocWithHdsQuery } from "../../../../store";
 import "./HdHome.css";
 import "../../../index.css";
+import HdJobBox from "../../../../components/home/HdJobBox/HdJobBox";
 
 const HdHome = () => {
   const { data, error, isFetching } = useFetchLocWithHdsQuery();
@@ -43,11 +40,12 @@ const HdHome = () => {
 
   return (
     <div className="home-content">
-      <div className="hd-lists">
+      {/* <div className="hd-lists">
         {content}
         <HdLocationList title="Home" data={config_home} />
         <HdLocationList title="Far Away" data={config_far} />
-      </div>
+      </div> */}
+      <HdJobBox />
     </div>
   );
 };

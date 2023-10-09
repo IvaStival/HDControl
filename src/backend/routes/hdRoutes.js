@@ -4,7 +4,7 @@ import HdCtrl from "../controllers/hdController.js";
 
 const hdRoutes = express.Router();
 
-hdRoutes.post("/hd", HdCtrl.createHd);
+hdRoutes.post("/new", HdCtrl.createHd);
 hdRoutes.put("/hd/:id", HdCtrl.updateHd);
 hdRoutes.delete("/hd/:id", HdCtrl.deleteHd);
 hdRoutes.get("/hds", HdCtrl.getHds);

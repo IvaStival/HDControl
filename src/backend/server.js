@@ -13,6 +13,7 @@ import locRoutes from "./routes/locRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 
 import passportConfig from "./authentication/passport.js";
+import jobRoutes from "./routes/jobRoutes.js";
 
 dotenv.config();
 
@@ -45,8 +46,6 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.use(
   session({
-    // ************* TODO *****************
-    // THIS MUST TO BE STORED INSIDE A ENVIROMENT VARIABLE FILE
     secret: process.env.SESSION_SECRET,
     name: "hdcontrolSession",
     resave: false,
@@ -75,5 +74,6 @@ app.get("/", (req, res) => {
 app.use("/hds", hdRoutes);
 app.use("/locs", locRoutes);
 app.use("/user", userRoutes);
+app.use("/job", jobRoutes);
 
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`));
