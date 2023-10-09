@@ -37,4 +37,10 @@ const direction = {
   col: "column",
 };
 
-export { title, font, headline, footnode, caption, space, direction };
+const colors = {
+  danger: "rgba(255, 204, 204, 1)",
+  warning: "rgba(255, 255, 204, 1)",
+  success: "rgba(204, 255, 204, 1)",
+};
+
+export { title, font, headline, footnode, caption, space, direction, colors };

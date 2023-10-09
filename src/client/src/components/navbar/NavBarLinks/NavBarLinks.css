@@ -1,0 +1,15 @@
+.links ul {
+  position: relative;
+  margin-top: 10px;
+}
+
+.links ul li {
+  color: #4b4b4bd8;
+  padding: 5px 10px;
+  width: 80px;
+}
+
+.links ul li:hover {
+  color: black;
+  transform: scale(1.05);
+}
