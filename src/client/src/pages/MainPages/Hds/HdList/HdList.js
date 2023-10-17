@@ -2,7 +2,7 @@ import { useFetchHdsQuery, useRemoveHdMutation } from "../../../../store";
 
 import Table from "../../../../components/common/Table/Table";
 import Button from "../../../../components/common/Button/Button";
-import MyQRCode from "../../../../components/hds/QRCode/QRCode";
+import MyQRCode from "../components/QRCode/QRCode";
 
 import { useNavigate } from "react-router-dom";
 

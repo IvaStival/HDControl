@@ -192,8 +192,6 @@ const isAuth = async (req, res, next) => {
   console.log(req.isAuthenticated());
   if (req.isAuthenticated()) {
     try {
-      console.log(req.user);
-
       res.send({
         success: true,
         isAuth: true,

@@ -1,9 +1,9 @@
-import Modal from "../../../components/common/Modal/Modal";
-import Button from "../../../components/common/Button/Button";
+import Modal from "../../../../../components/common/Modal/Modal";
+import Button from "../../../../../components/common/Button/Button";
 
-import { qrcodeGenerator } from "../../../utils/qrcodeGenerator";
+import { qrcodeGenerator } from "../../../../../utils/qrcodeGenerator";
 
-import { url, port } from "../../../utils/constants";
+import { url, port } from "../../../../../utils/constants";
 
 import "./QRCode.css";
 

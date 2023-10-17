@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAddHdMutation, useAddLocMutation } from "../../../../store";
 
 import Panel from "../../../../components/common/Panel/Panel";
-import Form from "../../../../components/hds/Form/Form";
+import Form from "../components/Form/Form";
 
 import "../../../index.css";
 

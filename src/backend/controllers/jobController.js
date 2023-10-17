@@ -108,6 +108,8 @@ const getJobs = async (req, res) => {
       });
     }
 
+    console.log("DATA");
+
     return res.status(200).json({
       success: true,
       data: result,

@@ -4,12 +4,14 @@ import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import { hdApi } from "./api/hdApi";
 import { locApi } from "./api/locApi";
 import userReducer from "./api/user/userSlice";
+import jobReducer from "./api/jobs/jobSlice";
 
 const store = configureStore({
   reducer: {
     [hdApi.reducerPath]: hdApi.reducer,
     [locApi.reducerPath]: locApi.reducer,
     user: userReducer,
+    job: jobReducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware().concat([hdApi.middleware, locApi.middleware]);
