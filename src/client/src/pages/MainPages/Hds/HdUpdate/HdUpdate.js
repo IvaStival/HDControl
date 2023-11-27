@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 
-import { useFetchHdsQuery, useUpdateHdMutation } from "../../../../store";
+import { useFetchHdQuery, useUpdateHdMutation } from "../../../../store";
 
 import Panel from "../../../../components/common/Panel/Panel";
 import Form from "../components/Form/Form";
@@ -9,13 +9,14 @@ import "../../../index.css";
 
 const HdUpdate = () => {
   const { id } = useParams();
-  const { data, error, isError, isLoading } = useFetchHdsQuery();
+  const { data, error, isError, isLoading } = useFetchHdQuery(id);
   const [updateHd] = useUpdateHdMutation();
   const navigate = useNavigate();
 
   const handleSubmit = async (e, inputs) => {
     e.preventDefault();
 
+    console.log(inputs);
     await updateHd({ id, inputs })
       .unwrap()
       .then((response) => {
@@ -29,15 +30,12 @@ const HdUpdate = () => {
   if (isLoading) {
     return <div>Loading ...</div>;
   } else if (isError) {
-    console.log(error);
     return <div>Error on Fetching Data</div>;
   } else {
-    const item = data.find((item) => item.id === parseInt(id));
-
     values = {
-      title: item.title,
-      size: item.size,
-      code: item.code,
+      title: data.data.title,
+      size: data.data.size,
+      code: data.data.code,
     };
   }
 

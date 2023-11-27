@@ -5,6 +5,7 @@ import { hdApi } from "./api/hdApi";
 import { locApi } from "./api/locApi";
 import userReducer from "./api/user/userSlice";
 import jobReducer from "./api/jobs/jobSlice";
+import locReducer from "./api/loc/locSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     [locApi.reducerPath]: locApi.reducer,
     user: userReducer,
     job: jobReducer,
+    loc: locReducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware().concat([hdApi.middleware, locApi.middleware]);

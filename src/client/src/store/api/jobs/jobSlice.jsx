@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 import { createJob } from "./actions/createJob";
 import { getJobs } from "./actions/getJobs";
@@ -13,7 +13,12 @@ const initialState = {
 const jobSlice = createSlice({
   name: "job",
   initialState,
-  reducers: {},
+  reducers: {
+    updateJobList: (state, param) => {
+      state.data.data = [...current(state).data.data, param.payload];
+      // console.log([...current(state).data.data, param.payload]);
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(createJob.pending, (state) => {
@@ -44,3 +49,4 @@ const jobSlice = createSlice({
 });
 
 export default jobSlice.reducer;
+export const { updateJobList } = jobSlice.actions;

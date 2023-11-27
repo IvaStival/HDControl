@@ -1,0 +1,18 @@
+.create-job-content {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.job-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.create-job-content h4 {
+  font-weight: bold;
+}

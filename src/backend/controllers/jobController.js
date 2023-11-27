@@ -14,14 +14,28 @@ const createJob = (req, res) => {
 
   job
     .save()
-    .then(() => {
-      return res.status(201).json({
+    .then(async () => {
+      // return res.status(201).json({
+      //   success: true,
+      //   job: job,
+      //   message: "Job Created",
+      // });
+      const result = await Job.find({});
+
+      if (!result) {
+        return res.status(404).json({
+          success: false,
+          message: "Jobs not found",
+        });
+      }
+
+      return res.status(200).json({
         success: true,
-        id: job._id,
-        message: "Job Created",
+        data: result,
       });
     })
     .catch((error) => {
+      console.log(error);
       return res.status(400).json({
         error,
         message: "Job not created.",
@@ -41,14 +55,9 @@ const updateJob = async (req, res) => {
 
   try {
     const job = await Job.findOne({ _id: req.params.id });
+    console.log(req.params.id);
 
     job.title = body.title;
-    job.location = body.location;
-    job.responsible = body.responsible;
-    job.phone = body.phone;
-    job.mail = body.mail;
-    job.type = body.type;
-    job.is_home = body.is_home;
     job.hdIds = body.hdIds;
 
     job
@@ -107,8 +116,6 @@ const getJobs = async (req, res) => {
         message: "Jobs not found",
       });
     }
-
-    console.log("DATA");
 
     return res.status(200).json({
       success: true,

@@ -90,18 +90,19 @@ const HdList = () => {
   };
 
   const handleUpdateHd = (hd) => {
-    navigate(`/update/${hd.id}`);
+    navigate(`/update/${hd._id}`);
   };
 
   const handleRemoveHd = async (hd) => {
     // THIS WILL REMOVE BOTH THE DATA hds INFO AND locs INFO
+    console.log(hd._id);
     await removeHd(hd)
       .unwrap()
       .catch((error) => console.error(error));
   };
 
   const keyFn = (hd) => {
-    return hd.id;
+    return hd._id;
   };
 
   let content;
@@ -113,7 +114,7 @@ const HdList = () => {
   } else {
     content = (
       <Table
-        data={data}
+        data={data.data}
         config={config}
         keyFn={keyFn}
         className="table-content"

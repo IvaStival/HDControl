@@ -1,7 +1,7 @@
 import "./Panel.css";
 
-const Panel = (props) => {
-  return <div className="panel-content">{props.children}</div>;
+const Panel = ({ className, children }) => {
+  return <div className={`panel-content ${className}`}>{children}</div>;
 };
 
 export default Panel;

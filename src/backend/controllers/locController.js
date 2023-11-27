@@ -24,7 +24,7 @@ const createLoc = (req, res) => {
     .catch((error) => {
       return res.status(400).json({
         error,
-        message: "HD not created",
+        message: "Localization not created",
       });
     });
 };
@@ -35,7 +35,7 @@ const updateLoc = async (req, res) => {
   if (!body) {
     return res.status(400).json({
       success: false,
-      error: "You must to provide a body to update",
+      error: "You must to provide a body to update localization",
     });
   }
 
@@ -44,12 +44,10 @@ const updateLoc = async (req, res) => {
 
     loc.location = body.location;
     loc.responsible = body.responsible;
+    loc.city = body.city;
     loc.phone = body.phone;
     loc.mail = body.mail;
-    loc.job = body.job;
-    loc.type = body.type;
     loc.description = body.description;
-    loc.hdId = body.hdId;
 
     loc
       .save()

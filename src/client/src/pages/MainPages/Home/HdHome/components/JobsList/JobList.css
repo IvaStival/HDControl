@@ -1,0 +1,17 @@
+.job-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 370px;
+  flex-wrap: wrap;
+}
+
+.job-list-content {
+  position: fixed;
+  height: calc(100% - 100px);
+  top: 0;
+  left: 0;
+  overflow: auto;
+  margin-top: 80px;
+}

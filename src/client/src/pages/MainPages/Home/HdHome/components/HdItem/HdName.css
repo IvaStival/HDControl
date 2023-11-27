@@ -1,0 +1,13 @@
+.hd-name-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 20px;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 12px;
+
+  background-color: rgb(116, 116, 116);
+  color: rgb(236, 236, 236);
+}

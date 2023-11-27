@@ -1,38 +1,15 @@
 import { useNavigate } from "react-router-dom";
-
 import { useAddHdMutation, useAddLocMutation } from "../../../../store";
 
-import Panel from "../../../../components/common/Panel/Panel";
-import Form from "../components/Form/Form";
-
-import "../../../index.css";
+import "./HdCreate.css";
+import CreatePanel from "../components/CreatePanel/CreatePanel";
+import { useState } from "react";
 
 const HdCreate = () => {
+  const [addError, setAddError] = useState(0);
+
   const [addHd] = useAddHdMutation();
-  const [addLoc] = useAddLocMutation();
   const navigate = useNavigate();
-
-  const addEmptyLocation = async (hd_id) => {
-    const inputs = {
-      location: "",
-      responsible: "",
-      phone: "",
-      mail: "",
-      date: "",
-      job: "",
-      type: "none",
-      size: "0",
-      hd_id: hd_id,
-    };
-
-    await addLoc(inputs)
-      .unwrap()
-      .then((response) => {
-        navigate(0);
-        return;
-      })
-      .catch((error) => console.error(error));
-  };
 
   const handleSubmit = async (e, inputs) => {
     e.preventDefault();
@@ -40,17 +17,15 @@ const HdCreate = () => {
     await addHd(inputs)
       .unwrap()
       .then((response) => {
-        addEmptyLocation(response.id);
         navigate("/hds");
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        setAddError(String(error.data.error.code));
+        console.error(String(error.data.error.code));
+      });
   };
 
-  return (
-    <Panel>
-      <Form isCreate={true} handleSubmit={handleSubmit} />
-    </Panel>
-  );
+  return <CreatePanel handleSubmit={handleSubmit} addError={addError} />;
 };
 
 export default HdCreate;

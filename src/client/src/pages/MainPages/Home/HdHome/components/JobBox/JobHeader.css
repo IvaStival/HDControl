@@ -1,0 +1,14 @@
+.hd-job-header-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.job-btns {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  width: fit-content;
+  margin-left: auto;
+}
