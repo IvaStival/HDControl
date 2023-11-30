@@ -8,11 +8,14 @@ import HdInfo from "./components/HdInfo/HdInfo";
 
 import CreateJob from "./components/CreateJob/CreateJob";
 
+import { useFetchHdsQuery } from "../../../../store";
+
 import { useState } from "react";
 
 const HdHome = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [clickPos, setClickPos] = useState([0, 0]);
+  const { isFetching, error, data } = useFetchHdsQuery();
 
   const handleShowMenu = (e) => {
     e.stopPropagation();

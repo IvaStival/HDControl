@@ -4,13 +4,15 @@ import Panel from "../../../../../../components/common/Panel/Panel";
 import HdList from "../HdList/HdList";
 import HdJobHeader from "./JobHeader";
 import Dropdown from "../../../../../../components/common/Dropdown/Dropdown";
+
 import { useState, useEffect, useRef } from "react";
 
 const HdJobBox = ({ id, title, hd_list }) => {
-  const [showDetail, setShowDetail] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [clickPos, setClickPos] = useState([0, 0]);
   const menuRef = useRef();
+
+  // const dispatch = useDispatch();
 
   // This part of code is used to close the Menu when we click on outiside of the current
   // job window.
@@ -35,8 +37,7 @@ const HdJobBox = ({ id, title, hd_list }) => {
     console.log(id);
   };
 
-  const handleShowDetail = (e) => {
-    setShowDetail(!showDetail);
+  const handleClick = (e) => {
     console.log(hd_list);
   };
 
@@ -47,7 +48,7 @@ const HdJobBox = ({ id, title, hd_list }) => {
   };
 
   return (
-    <div onClick={handleShowDetail} ref={menuRef} className="job-box">
+    <div onClick={handleClick} ref={menuRef} className="job-box">
       <Panel>
         <div className="job-content">
           <HdJobHeader

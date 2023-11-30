@@ -18,6 +18,9 @@ const jobSlice = createSlice({
       state.data.data = [...current(state).data.data, param.payload];
       // console.log([...current(state).data.data, param.payload]);
     },
+    updateJobHdsInfo: (state, param) => {
+      console.log(param);
+    },
   },
   extraReducers: (builder) => {
     builder
