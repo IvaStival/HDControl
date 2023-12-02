@@ -8,28 +8,16 @@ import HdInfo from "./components/HdInfo/HdInfo";
 
 import CreateJob from "./components/CreateJob/CreateJob";
 
-import { useFetchHdsQuery } from "../../../../store";
-
 import { useState } from "react";
 
 const HdHome = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [clickPos, setClickPos] = useState([0, 0]);
-  const { isFetching, error, data } = useFetchHdsQuery();
 
   const handleShowMenu = (e) => {
     e.stopPropagation();
     setClickPos([e.target.offsetLeft, e.target.offsetTop]);
     setShowMenu(!showMenu);
-  };
-  const info = {
-    location: "Produtora 3D Xilovers",
-    responsible: "Ivã Stival",
-    city: "São Paulo",
-    phone: "(45) 99823123",
-    mail: "xilovers@produtora.com",
-    description:
-      "O Hd foi entregue para o fulano fazer color asldkjalskdjal ksdjlaksjdla asdasdasd .",
   };
 
   return (
@@ -45,7 +33,7 @@ const HdHome = () => {
       {/* This componets have a list of Jobs and the HDs that are been used in this each Job */}
       <div className="home-main">
         <HdJobList />
-        <HdInfo data={info} />
+        <HdInfo />
       </div>
     </div>
   );

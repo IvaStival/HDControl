@@ -25,9 +25,9 @@ const AppLayout = () => (
 const router = createBrowserRouter([
   {
     element: (
-      <ProtectedRoute>
-        <AppLayout />
-      </ProtectedRoute>
+      // <ProtectedRoute>
+      <AppLayout />
+      // </ProtectedRoute>
     ),
     children: [
       {

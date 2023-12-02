@@ -110,7 +110,7 @@ const getHds = async (req, res) => {
 const getHdById = async (req, res) => {
   try {
     const result = await Hd.findOne({ _id: req.params.id });
-
+    console.log(req.params.id);
     if (!result) {
       return res.status(404).json({
         success: false,

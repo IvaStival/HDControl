@@ -1,46 +1,62 @@
-import { useNavigate, useParams } from "react-router-dom";
+import "../../../index.css";
 
-import { useFetchHdQuery, useUpdateHdMutation } from "../../../../store";
+import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import { getHds } from "../../../../store/api/hds/actions/getHds";
+import { updateHd } from "../../../../store/api/hds/actions/updateHd";
+
+import { selectHds, selectStatus } from "../../../../store/api/hds/hdSlice";
 
 import Panel from "../../../../components/common/Panel/Panel";
 import Form from "../components/Form/Form";
 
-import "../../../index.css";
-
 const HdUpdate = () => {
   const { id } = useParams();
-  const { data, error, isError, isLoading } = useFetchHdQuery(id);
-  const [updateHd] = useUpdateHdMutation();
+
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const data = useSelector(selectHds);
+  const hdStatus = useSelector(selectStatus);
+
+  useEffect(() => {
+    if (hdStatus === "idle") {
+      dispatch(getHds(id));
+    }
+  }, [hdStatus, dispatch, id]);
 
   const handleSubmit = async (e, inputs) => {
     e.preventDefault();
+    // await updateHd({ id, inputs })
+    //   .unwrap()
+    //   .then((response) => {
+    //     navigate("/hds");
+    //   })
+    //   .catch((error) => console.error(error));
 
-    console.log(inputs);
-    await updateHd({ id, inputs })
-      .unwrap()
-      .then((response) => {
-        navigate("/hds");
-      })
-      .catch((error) => console.error(error));
+    dispatch(updateHd({ ...inputs, id: id }));
   };
 
   let values = {};
 
-  if (isLoading) {
+  if (hdStatus === "loading") {
     return <div>Loading ...</div>;
-  } else if (isError) {
+  } else if (hdStatus === "failed") {
     return <div>Error on Fetching Data</div>;
-  } else {
+  } else if (hdStatus === "succeeded") {
+    const hd_data = data.find((hd) => hd._id === id);
+
     values = {
-      title: data.data.title,
-      size: data.data.size,
-      code: data.data.code,
+      title: hd_data.title,
+      size: hd_data.size,
+      code: hd_data.code,
     };
   }
 
   return (
-    <Panel>
+    <Panel className={"hd-panel"}>
       <Form isCreate={false} values={values} handleSubmit={handleSubmit} />
     </Panel>
   );

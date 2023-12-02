@@ -1,20 +1,30 @@
-import { useFetchHdsQuery, useRemoveHdMutation } from "../../../../store";
+import "./HdList.css";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import Table from "../../../../components/common/Table/Table";
 import Button from "../../../../components/common/Button/Button";
 import MyQRCode from "../components/QRCode/QRCode";
 
-import { useNavigate } from "react-router-dom";
-
-import "./HdList.css";
-import { useState } from "react";
+import { selectHds, selectStatus } from "../../../../store/api/hds/hdSlice";
+import { getHds } from "../../../../store/api/hds/actions/getHds";
+import { deleteHd } from "../../../../store/api/hds/actions/deleteHd";
 
 const HdList = () => {
   const [showModal, setShowModal] = useState(false);
   const [currentID, setCurrentID] = useState();
-  const { data, error, isFetching } = useFetchHdsQuery();
-  const [removeHd] = useRemoveHdMutation();
+  const dispatch = useDispatch();
+  const hdStatus = useSelector(selectStatus);
+  const data = useSelector(selectHds);
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (hdStatus === "idle") {
+      dispatch(getHds());
+    }
+  }, [hdStatus, dispatch]);
 
   const handleOpen = (e, id) => {
     setShowModal(true);
@@ -95,10 +105,12 @@ const HdList = () => {
 
   const handleRemoveHd = async (hd) => {
     // THIS WILL REMOVE BOTH THE DATA hds INFO AND locs INFO
-    console.log(hd._id);
-    await removeHd(hd)
-      .unwrap()
-      .catch((error) => console.error(error));
+
+    // await removeHd(hd)
+    //   .unwrap()
+    //   .catch((error) => console.error(error));
+
+    dispatch(deleteHd(hd._id));
   };
 
   const keyFn = (hd) => {
@@ -107,14 +119,14 @@ const HdList = () => {
 
   let content;
 
-  if (isFetching) {
+  if (hdStatus === "loading") {
     content = <div>Fetching Data</div>;
-  } else if (error) {
+  } else if (hdStatus === "failed") {
     content = <div>Error Fetching Hds!</div>;
-  } else {
+  } else if (hdStatus === "succeeded") {
     content = (
       <Table
-        data={data.data}
+        data={data}
         config={config}
         keyFn={keyFn}
         className="table-content"

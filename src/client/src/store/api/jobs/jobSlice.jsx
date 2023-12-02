@@ -4,7 +4,7 @@ import { createJob } from "./actions/createJob";
 import { getJobs } from "./actions/getJobs";
 
 const initialState = {
-  loading: false,
+  status: "idle",
   error: false,
   message: null,
   data: null,
@@ -24,32 +24,31 @@ const jobSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(createJob.pending, (state) => {
-        state.loading = true;
+      .addCase(createJob.pending, (state, action) => {
+        state.status = "loading";
       })
-      .addCase(createJob.fulfilled, (state, { payload }) => {
-        state.loading = false;
-        state.fulfilled = true;
-        state.data = payload;
+      .addCase(createJob.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.data = action.payload.data;
       })
-      .addCase(createJob.rejected, (state, { payload }) => {
-        state.loading = false;
-        state.error = payload;
+      .addCase(createJob.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
       })
-      .addCase(getJobs.pending, (state) => {
-        state.loading = true;
+      .addCase(getJobs.pending, (state, action) => {
+        state.status = "loading";
       })
-      .addCase(getJobs.fulfilled, (state, { payload }) => {
-        state.loading = false;
-        state.fulfilled = true;
-        state.data = payload;
+      .addCase(getJobs.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.data = action.payload.data;
       })
-      .addCase(getJobs.rejected, (state, { payload }) => {
-        state.loading = false;
-        state.error = payload;
+      .addCase(getJobs.rejected, (state, action) => {
+        state.status = "error";
+        state.error = action.error.message;
       });
   },
 });
 
 export default jobSlice.reducer;
 export const { updateJobList } = jobSlice.actions;
+export const getJobsSelector = (state) => state.job.data;
