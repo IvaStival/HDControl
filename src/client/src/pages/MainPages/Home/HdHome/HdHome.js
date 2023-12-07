@@ -26,7 +26,12 @@ const HdHome = () => {
         +
       </Button>
 
-      <Dropdown x={clickPos[0]} y={clickPos[1]} activated={showMenu}>
+      <Dropdown
+        x={clickPos[0]}
+        y={clickPos[1]}
+        activated={showMenu}
+        closeMenu={setShowMenu}
+      >
         <CreateJob setShowMenu={setShowMenu} />
       </Dropdown>
 

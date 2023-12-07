@@ -2,10 +2,10 @@ import "./HdItemHeader.css";
 
 import HdName from "./HdName";
 
-const HdItemHeader = ({ children }) => {
+const HdItemHeader = ({ interactive, children }) => {
   return (
-    <div className="hd-item-header-content">
-      <HdName>{children}</HdName>
+    <div className={"hd-item-header-content"}>
+      <HdName interactive={interactive}>{children}</HdName>
     </div>
   );
 };

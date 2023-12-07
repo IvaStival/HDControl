@@ -1,6 +1,5 @@
 .dd-content {
   position: absolute;
-  width: fit-content;
   height: fit-content;
   opacity: 0;
   visibility: hidden;

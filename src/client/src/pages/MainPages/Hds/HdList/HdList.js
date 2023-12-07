@@ -7,7 +7,7 @@ import Table from "../../../../components/common/Table/Table";
 import Button from "../../../../components/common/Button/Button";
 import MyQRCode from "../components/QRCode/QRCode";
 
-import { selectHds, selectStatus } from "../../../../store/api/hds/hdSlice";
+import { selectHds, selectHdStatus } from "../../../../store/api/hds/hdSlice";
 import { getHds } from "../../../../store/api/hds/actions/getHds";
 import { deleteHd } from "../../../../store/api/hds/actions/deleteHd";
 
@@ -15,7 +15,7 @@ const HdList = () => {
   const [showModal, setShowModal] = useState(false);
   const [currentID, setCurrentID] = useState();
   const dispatch = useDispatch();
-  const hdStatus = useSelector(selectStatus);
+  const hdStatus = useSelector(selectHdStatus);
   const data = useSelector(selectHds);
 
   const navigate = useNavigate();

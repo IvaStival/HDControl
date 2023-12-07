@@ -22,7 +22,7 @@ const hdSlice = createSlice({
         state.status = "loading";
       })
       .addCase(createHd.fulfilled, (state, action) => {
-        state.status = "succeeded";
+        state.status = "idle";
         state.data = action.payload.data;
       })
       .addCase(createHd.rejected, (state, action) => {
@@ -80,4 +80,4 @@ export const selectHd = (state, id) => {
   console.log(state.hd.data.find((hd) => hd.id === id));
   //   state.hd.data.find((hd) => hd.id === id);
 };
-export const selectStatus = (state) => state.hd.status;
+export const selectHdStatus = (state) => state.hd.status;

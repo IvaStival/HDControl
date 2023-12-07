@@ -11,6 +11,8 @@ const createHd = (req, res) => {
     });
   }
 
+  console.log(body);
+
   const hd = new Hd(body);
 
   Hd.insertMany(body, { upsert: true })

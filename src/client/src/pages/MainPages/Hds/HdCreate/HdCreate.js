@@ -5,11 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 import CreatePanel from "../components/CreatePanel/CreatePanel";
 import { createHd } from "../../../../store/api/hds/actions/createHd";
-import { selectStatus } from "../../../../store/api/hds/hdSlice";
 
 const HdCreate = () => {
   const [addError, setAddError] = useState(0);
-  const hdStatus = useSelector(selectStatus);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -17,18 +15,10 @@ const HdCreate = () => {
   const handleSubmit = async (e, inputs) => {
     e.preventDefault();
 
-    // await addHd(inputs)
-    //   .unwrap()
-    //   .then((response) => {
-    //     navigate("/hds");
-    //   })
-    //   .catch((error) => {
-    //     setAddError(String(error.data.error.code));
-    //     console.error(String(error.data.error.code));
-    //   });
+    const new_hd_data = { ...inputs, qrcode: "ASDAS", type: 1 };
 
-    const result = await dispatch(createHd(inputs));
-    console.log(result);
+    dispatch(createHd(new_hd_data));
+    navigate("/hds");
   };
 
   return <CreatePanel handleSubmit={handleSubmit} addError={addError} />;

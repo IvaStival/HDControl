@@ -50,7 +50,7 @@ const hdApi = createApi({
               size: hd.size,
               code: hd.code,
               is_home: true,
-              qrcode: hd.code,
+              qrcode: "qrcode",
               type: 1,
             },
           };

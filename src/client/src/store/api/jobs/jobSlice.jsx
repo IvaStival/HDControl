@@ -51,4 +51,5 @@ const jobSlice = createSlice({
 
 export default jobSlice.reducer;
 export const { updateJobList } = jobSlice.actions;
-export const getJobsSelector = (state) => state.job.data;
+export const selectJobs = (state) => state.job.data;
+export const selectJobStatus = (state) => state.job.status;

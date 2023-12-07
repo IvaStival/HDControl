@@ -1,67 +1,53 @@
 import "./JobBox.css";
 
+import { useSelector } from "react-redux";
+
 import Panel from "../../../../../../components/common/Panel/Panel";
 import HdList from "../HdList/HdList";
 import HdJobHeader from "./JobHeader";
-import Dropdown from "../../../../../../components/common/Dropdown/Dropdown";
 
-import { useState, useEffect, useRef } from "react";
+import { selectHds } from "../../../../../../store/api/hds/hdSlice";
+import { selectHdStatus } from "../../../../../../store/api/hds/hdSlice";
+// import { selectJobs } from "../../../../../../store/api/jobs/jobSlice";
 
-const HdJobBox = ({ id, title, hd_list }) => {
-  const [showMenu, setShowMenu] = useState(false);
-  const [clickPos, setClickPos] = useState([0, 0]);
-  const menuRef = useRef();
+const HdJobBox = ({ id, title, hd_list, handleShowMenu }) => {
+  const hds = useSelector(selectHds);
+  const hdsStatus = useSelector(selectHdStatus);
+
+  // const jobs = useSelector(selectJobs);
+  // const jobsStatus = useSelector(selectJobStatus);
+
+  let job_hds;
 
   // const dispatch = useDispatch();
-
-  // This part of code is used to close the Menu when we click on outiside of the current
-  // job window.
-  useEffect(() => {
-    let handler = (e) => {
-      // Here I use a Ref to store the current Job Box to avoid that the dropdown close when
-      // we interact with something on this Job Box
-      if (!menuRef.current.contains(e.target)) {
-        setShowMenu(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handler);
-
-    return () => {
-      document.removeEventListener("mousedown", handler);
-    };
-  }, []);
 
   const handleDelete = (e) => {
     e.stopPropagation();
     console.log(id);
   };
 
-  const handleClick = (e) => {
-    console.log(hd_list);
+  const handlePositionAndTitle = (e, x, y) => {
+    handleShowMenu(e, x, y, title);
   };
 
-  const handleShowMenu = (e) => {
-    e.stopPropagation();
-    setClickPos([e.target.offsetLeft, e.target.offsetTop]);
-    setShowMenu(!showMenu);
-  };
+  // THIS HDS LIST IS SHOWED ON EACH JOB PANEL
+
+  if (hdsStatus === "succeeded") {
+    job_hds = hd_list.map((id) => {
+      return hds.find((hd) => hd._id === id);
+    });
+  }
 
   return (
-    <div onClick={handleClick} ref={menuRef} className="job-box">
+    <div className="job-box">
       <Panel>
         <div className="job-content">
           <HdJobHeader
             title={title}
             handleDelete={handleDelete}
-            showDropdown={handleShowMenu}
+            showDropdown={handlePositionAndTitle}
           />
-
-          <Dropdown x={clickPos[0]} y={clickPos[1]} activated={showMenu}>
-            ASDASDasjdalksjdlk
-          </Dropdown>
-
-          <HdList data={hd_list} />
+          <HdList data={job_hds} />
         </div>
       </Panel>
     </div>

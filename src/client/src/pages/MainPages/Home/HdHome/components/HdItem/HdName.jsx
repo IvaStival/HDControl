@@ -1,7 +1,13 @@
 import "./HdName.css";
 
-const HdName = ({ children }) => {
-  return <div className="hd-name-content">FFHD{children}</div>;
+const HdName = ({ interactive, children }) => {
+  return (
+    <div
+      className={`hd-name-content ${interactive ? "hd-name-interactive" : ""}`}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default HdName;

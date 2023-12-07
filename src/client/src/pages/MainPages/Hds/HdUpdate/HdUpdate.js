@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getHds } from "../../../../store/api/hds/actions/getHds";
 import { updateHd } from "../../../../store/api/hds/actions/updateHd";
 
-import { selectHds, selectStatus } from "../../../../store/api/hds/hdSlice";
+import { selectHds, selectHdStatus } from "../../../../store/api/hds/hdSlice";
 
 import Panel from "../../../../components/common/Panel/Panel";
 import Form from "../components/Form/Form";
@@ -19,7 +19,7 @@ const HdUpdate = () => {
   const navigate = useNavigate();
 
   const data = useSelector(selectHds);
-  const hdStatus = useSelector(selectStatus);
+  const hdStatus = useSelector(selectHdStatus);
 
   useEffect(() => {
     if (hdStatus === "idle") {
