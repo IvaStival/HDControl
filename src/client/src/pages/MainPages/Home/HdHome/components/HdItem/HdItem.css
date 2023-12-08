@@ -7,6 +7,7 @@
   background-color: rgb(231, 231, 231);
   margin-top: 5px;
   margin-right: 5px;
+  user-select: none;
 }
 
 .hd-number {
@@ -24,4 +25,10 @@
 .hd-disable {
   pointer-events: none;
   opacity: 0.5;
+}
+
+.hd-item-delete-btn {
+  position: absolute;
+  top: -1.5px;
+  right: -1.5px;
 }

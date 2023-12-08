@@ -12,3 +12,10 @@
   width: fit-content;
   margin-left: auto;
 }
+
+.job-title {
+  position: absolute;
+  font-weight: bold;
+  font-size: 14px;
+  top: 14px;
+}

@@ -1,14 +1,24 @@
+import SmallButton from "../SmallButtom/SmallButton";
 import "./HdItem.css";
 
 import HdItemHeader from "./HdItemHeader";
 
-const HdItem = ({ id, number, interactive, disable, handleAddHd }) => {
+const HdItem = ({
+  id,
+  title,
+  interactive,
+  disable,
+  handleAddHd,
+  handleDeleteHd,
+}) => {
   const handleClick = (e) => {
     if (interactive) {
       handleAddHd(e, id);
-
-      console.log(disable);
     }
+  };
+
+  const handleDeleteClick = (e) => {
+    handleDeleteHd(e, id);
   };
 
   return (
@@ -16,7 +26,19 @@ const HdItem = ({ id, number, interactive, disable, handleAddHd }) => {
       onClick={handleClick}
       className={`hd-item-content ${disable ? "hd-disable" : ""}`}
     >
-      <HdItemHeader interactive={interactive}>{number}</HdItemHeader>
+      <HdItemHeader interactive={interactive}>{title}</HdItemHeader>
+      {!interactive ? (
+        <SmallButton
+          onClick={handleDeleteClick}
+          bg={true}
+          verySmall={true}
+          className={"hd-item-delete-btn"}
+        >
+          -
+        </SmallButton>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

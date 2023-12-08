@@ -14,8 +14,8 @@ const HdJobHeader = ({ title, handleDelete, showDropdown }) => {
     <div className="hd-job-header-content">
       <span className="job-title">{title}</span>
       <div className="job-btns">
-        <SmallButton handleClick={handleDelete}>-</SmallButton>
-        <SmallButton handleClick={handleClick}>+</SmallButton>
+        <SmallButton onClick={handleDelete}>-</SmallButton>
+        <SmallButton onClick={handleClick}>+</SmallButton>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import { selectJobStatus } from "../../../../../../store/api/jobs/jobSlice";
 
 import { jobsHdCheck } from "../../../../../../utils/jobsHdCheck";
 
-const HdList = ({ interactive, data, handleAddHd }) => {
+const HdList = ({ interactive, data, handleAddHd, handleDeleteHd }) => {
   const jobs = useSelector(selectJobs);
   const jobsStatus = useSelector(selectJobStatus);
 
@@ -24,9 +24,10 @@ const HdList = ({ interactive, data, handleAddHd }) => {
         <HdItem
           id={hd._id}
           handleAddHd={handleAddHd}
+          handleDeleteHd={handleDeleteHd}
           interactive={interactive}
           key={hd._id}
-          number={hd.title}
+          title={hd.title}
           disable={interactive ? jobsHdCheck(hd._id, jobs) : ""}
         />
       );

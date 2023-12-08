@@ -1,9 +1,12 @@
 import "./SmallButton.css";
 
-const SmallButton = ({ handleClick, children }) => {
+const SmallButton = ({ onClick, bg, verySmall, className, children }) => {
+  const classNameSetup = `small-btn ${verySmall ? "very-small-btn" : ""} ${
+    bg ? "fixed-bg" : ""
+  } ${className}`;
 
   return (
-    <div onClick={handleClick} className="small-btn">
+    <div onClick={onClick} className={classNameSetup}>
       {children}
     </div>
   );
