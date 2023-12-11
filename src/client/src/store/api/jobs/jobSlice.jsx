@@ -3,6 +3,7 @@ import { createSlice, current } from "@reduxjs/toolkit";
 import { createJob } from "./actions/createJob";
 import { getJobs } from "./actions/getJobs";
 import { updateJob } from "./actions/updateJob";
+import { deleteJob } from "./actions/deleteJob";
 
 const initialState = {
   status: "idle",
@@ -55,6 +56,17 @@ const jobSlice = createSlice({
         // state.data = action.payload.data;
       })
       .addCase(updateJob.rejected, (state, action) => {
+        state.status = "error";
+        state.error = action.error.message;
+      })
+      .addCase(deleteJob.pending, (state, action) => {
+        state.status = "loading";
+      })
+      .addCase(deleteJob.fulfilled, (state, action) => {
+        state.status = "idle";
+        // state.data = action.payload.data;
+      })
+      .addCase(deleteJob.rejected, (state, action) => {
         state.status = "error";
         state.error = action.error.message;
       });

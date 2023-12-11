@@ -11,6 +11,7 @@ import { selectHdStatus } from "../../../../../../store/api/hds/hdSlice";
 
 import { selectJobs } from "../../../../../../store/api/jobs/jobSlice";
 import { updateJob } from "../../../../../../store/api/jobs/actions/updateJob";
+import { deleteJob } from "../../../../../../store/api/jobs/actions/deleteJob";
 
 const HdJobBox = ({ id, title, hd_list, handleShowMenu }) => {
   const hds = useSelector(selectHds);
@@ -26,6 +27,8 @@ const HdJobBox = ({ id, title, hd_list, handleShowMenu }) => {
   const handleDelete = (e) => {
     e.stopPropagation();
     console.log(id);
+
+    dispatch(deleteJob({ id: id }));
   };
 
   const handleDeleteHd = (e, hd_id) => {
