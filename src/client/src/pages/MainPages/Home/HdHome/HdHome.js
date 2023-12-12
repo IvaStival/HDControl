@@ -4,7 +4,7 @@ import "../../../index.css";
 import Button from "../../../../components/common/Button/Button";
 import HdJobList from "./components/JobsList/JobList";
 import Dropdown from "../../../../components/common/Dropdown/Dropdown";
-import HdInfo from "./components/HdInfo/HdInfo";
+import LocInfo from "./components/LocInfo/LocInfo";
 
 import CreateJob from "./components/CreateJob/CreateJob";
 
@@ -38,7 +38,7 @@ const HdHome = () => {
       {/* This componets have a list of Jobs and the HDs that are been used in this each Job */}
       <div className="home-main">
         <HdJobList />
-        <HdInfo />
+        <LocInfo />
       </div>
     </div>
   );

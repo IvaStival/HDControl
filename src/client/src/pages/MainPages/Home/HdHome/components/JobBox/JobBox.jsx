@@ -9,7 +9,10 @@ import HdJobHeader from "./JobHeader";
 import { selectHds } from "../../../../../../store/api/hds/hdSlice";
 import { selectHdStatus } from "../../../../../../store/api/hds/hdSlice";
 
-import { selectJobs } from "../../../../../../store/api/jobs/jobSlice";
+import {
+  selectJobs,
+  updateJobHds,
+} from "../../../../../../store/api/jobs/jobSlice";
 import { updateJob } from "../../../../../../store/api/jobs/actions/updateJob";
 import { deleteJob } from "../../../../../../store/api/jobs/actions/deleteJob";
 
@@ -24,9 +27,9 @@ const HdJobBox = ({ id, title, hd_list, handleShowMenu }) => {
 
   const dispatch = useDispatch();
 
+  // -------------- HANDLERS --------------
   const handleDelete = (e) => {
     e.stopPropagation();
-    console.log(id);
 
     dispatch(deleteJob({ id: id }));
   };
@@ -45,8 +48,13 @@ const HdJobBox = ({ id, title, hd_list, handleShowMenu }) => {
     handleShowMenu(e, x, y, title, id);
   };
 
-  // THIS HDS LIST IS SHOWED ON EACH JOB PANEL
+  // UPDATE THE STATE jobHds WITH THE CURRENT CLICKED HDS JOB
+  const handleJobBoxClick = (e) => {
+    console.log(id);
+    dispatch(updateJobHds(hd_list));
+  };
 
+  // THIS HDS LIST IS SHOWED ON EACH JOB PANEL
   if (hdsStatus === "succeeded") {
     job_hds = hd_list.map((id) => {
       return hds.find((hd) => hd._id === id);
@@ -56,7 +64,7 @@ const HdJobBox = ({ id, title, hd_list, handleShowMenu }) => {
   return (
     <div className="job-box">
       <Panel>
-        <div className="job-content">
+        <div onClick={handleJobBoxClick} className="job-content">
           <HdJobHeader
             title={title}
             handleDelete={handleDelete}

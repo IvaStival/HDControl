@@ -10,6 +10,7 @@ const initialState = {
   error: false,
   message: null,
   data: null,
+  jobHds: [],
 };
 
 const jobSlice = createSlice({
@@ -20,8 +21,9 @@ const jobSlice = createSlice({
       state.data.data = [...current(state).data.data, param.payload];
       // console.log([...current(state).data.data, param.payload]);
     },
-    updateJobHdsInfo: (state, param) => {
-      console.log(param);
+    updateJobHds: (state, param) => {
+      console.log(current(state).jobHds);
+      state.jobHds = param.payload;
     },
   },
   extraReducers: (builder) => {
@@ -74,6 +76,7 @@ const jobSlice = createSlice({
 });
 
 export default jobSlice.reducer;
-export const { updateJobList } = jobSlice.actions;
+export const { updateJobList, updateJobHds } = jobSlice.actions;
 export const selectJobs = (state) => state.job.data;
 export const selectJobStatus = (state) => state.job.status;
+export const selectJobHds = (state) => state.job.jobHds;

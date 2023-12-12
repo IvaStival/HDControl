@@ -1,6 +1,7 @@
 .job-box {
   padding-left: 10px;
   margin: 10px;
+  user-select: none;
 }
 
 .job-content {

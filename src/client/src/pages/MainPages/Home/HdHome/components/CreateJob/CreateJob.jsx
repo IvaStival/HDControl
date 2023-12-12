@@ -20,16 +20,6 @@ const CreateJob = ({ setShowMenu }) => {
   const handleClick = (e) => {
     setShowMenu(false);
     dispatch(createJob({ title: jobName }));
-    // dispatch(
-    //   updateJobList({
-    //     _id: "6536c9572b243a7f2535e59r",
-    //     title: jobName,
-    //     hdIds: ["10", "100", "8"],
-    //     createdAt: "2023-10-23T19:28:23.170Z",
-    //     updatedAt: "2023-10-23T19:28:23.170Z",
-    //     __v: 1,
-    //   })
-    // );
   };
 
   return (

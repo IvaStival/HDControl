@@ -1,0 +1,26 @@
+.loc-data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  font-size: 10px;
+  padding: 10px;
+  color: rgb(90, 90, 90);
+}
+
+.loc-data-content {
+  background-color: rgb(229, 229, 229);
+  margin: 20px;
+  border-radius: 5px;
+}
+
+.loc-add-button {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+}
+
+.loc-data h2 {
+  font-size: 13px;
+  font-weight: bold;
+}

@@ -3,10 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { createLoc } from "./actions/createLoc";
 
 const initialState = {
-  loading: false,
-  error: false,
-  fulfilled: false,
-  rejected: false,
+  status: "idle",
   message: null,
   data: null,
 };
@@ -18,16 +15,15 @@ const locSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(createLoc.pending, (state) => {
-        state.loading = true;
+        state.status = "loading";
       })
-      .addCase(createLoc.fulfilled, (state, { payload }) => {
-        state.loading = false;
-        state.fulfilled = true;
-        state.data = payload;
+      .addCase(createLoc.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.data = action.payload.data;
       })
-      .addCase(createLoc.rejected, (state, { payload }) => {
-        state.loading = false;
-        state.error = payload;
+      .addCase(createLoc.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
       });
   },
 });

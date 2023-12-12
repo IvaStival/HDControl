@@ -1,11 +1,8 @@
-.hd-panel {
-  transform: translateX(120px);
-}
-
 .hd-create-content {
   display: flex;
   flex-direction: column;
   padding: 30px;
+  width: 520px;
 }
 
 .hd-create-content h3 {

@@ -16,7 +16,8 @@ const createLoc = createAsyncThunk(
         },
       };
 
-      await _axios.post("/loc/new", { data }, config);
+      const { data } = await _axios.post("/loc/new", { data }, config);
+      return data;
     } catch (error) {
       if (error.response && error.response.data.message) {
         return rejectedWithValue(error.response.data.message);

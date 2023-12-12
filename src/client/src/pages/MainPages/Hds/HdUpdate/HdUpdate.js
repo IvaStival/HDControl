@@ -1,4 +1,5 @@
 import "../../../index.css";
+import "./HdUpdate.css";
 
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";

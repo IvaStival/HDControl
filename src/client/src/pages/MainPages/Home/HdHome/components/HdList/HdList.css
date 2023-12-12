@@ -3,7 +3,7 @@
   align-items: flex-start;
   justify-content: left;
   flex-direction: row;
-  width: 225px;
+  width: fit-content;
   flex-wrap: wrap;
   margin-top: 10px;
 }

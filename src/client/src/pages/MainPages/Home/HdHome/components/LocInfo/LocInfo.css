@@ -1,0 +1,16 @@
+.info-panel {
+  position: fixed;
+  left: 0;
+  transform: translateX(315px);
+  top: 90px;
+  max-height: calc(100% - 115px);
+  min-height: 200px;
+  height: fit-content;
+  min-width: 400px;
+  /* width: calc(100% - 410px); */
+  width: 600px;
+  overflow: auto;
+}
+
+.hd-info-content {
+}
