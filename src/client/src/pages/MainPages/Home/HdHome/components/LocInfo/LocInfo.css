@@ -13,4 +13,8 @@
 }
 
 .hd-info-content {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  height: fit-content;
 }

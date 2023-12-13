@@ -3,6 +3,7 @@ import "./JobList.css";
 import JobBox from "../JobBox/JobBox";
 import Dropdown from "../../../../../../components/common/Dropdown/Dropdown";
 import HdList from "../HdList/HdList";
+import Title from "../../../../../../components/common/Title/Title";
 
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -100,6 +101,7 @@ const HdJobList = () => {
   return (
     <>
       <div className="job-list-content">
+        <Title className={"job-list-title"}>Jobs</Title>
         <div className="job-list">{content}</div>
       </div>
       <Dropdown

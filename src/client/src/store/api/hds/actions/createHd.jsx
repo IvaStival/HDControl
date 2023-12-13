@@ -18,7 +18,6 @@ const createHd = createAsyncThunk(
         },
       };
 
-      console.log(qrcode);
       const { data } = await _axios.post(
         "/hds/new",
         { title, size, code, is_home, qrcode, type },

@@ -7,20 +7,11 @@ import HdInfoData from "./LocInfoData";
 
 import { selectJobHds } from "../../../../../../store/api/jobs/jobSlice";
 import { selectHds } from "../../../../../../store/api/hds/hdSlice";
+import Title from "../../../../../../components/common/Title/Title";
 
 const LocInfo = () => {
   const currentHdsIds = useSelector(selectJobHds);
   const hds = useSelector(selectHds);
-
-  const info = {
-    location: "Produtora 3D Xilovers",
-    responsible: "Ivã Stival",
-    city: "São Paulo",
-    phone: "(45) 99823123",
-    mail: "xilovers@produtora.com",
-    description:
-      "O Hd foi entregue para o fulano fazer color asldkjalskdjal ksdjlaksjdla asdasdasd .",
-  };
 
   let renderedContent;
 
@@ -32,7 +23,12 @@ const LocInfo = () => {
     });
   }
 
-  return <Panel className="info-panel">{renderedContent}</Panel>;
+  return (
+    <div className="hd-info-content">
+      <Title>Localization</Title>
+      <Panel className="info-panel">{renderedContent}</Panel>
+    </div>
+  );
 };
 
 export default LocInfo;

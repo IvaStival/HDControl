@@ -6,11 +6,9 @@ const _axios = new AxiosHelper(`${backend_url}:${backend_port}`);
 
 const updateHd = createAsyncThunk(
   "hds/updatehd",
-  async (
-    { id, title, size, code, is_home, qrcode, type },
-    { rejectedWithValue }
-  ) => {
+  async ({ id, hdData }, { rejectedWithValue }) => {
     try {
+      console.log(id);
       const config = {
         headers: {
           credentials: "included",
@@ -20,7 +18,7 @@ const updateHd = createAsyncThunk(
 
       const { data } = await _axios.patch(
         `/hds/hd/${id}`,
-        { title, size, code, is_home, qrcode, type },
+        { ...hdData },
         config
       );
       return data;

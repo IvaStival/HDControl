@@ -17,7 +17,6 @@ const HdUpdate = () => {
   const { id } = useParams();
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const data = useSelector(selectHds);
   const hdStatus = useSelector(selectHdStatus);
@@ -37,7 +36,7 @@ const HdUpdate = () => {
     //   })
     //   .catch((error) => console.error(error));
 
-    dispatch(updateHd({ ...inputs, id: id }));
+    dispatch(updateHd({ inputs, id: id }));
   };
 
   let values = {};

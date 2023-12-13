@@ -7,16 +7,16 @@ const _axios = new AxiosHelper(`${backend_url}:${backend_port}`);
 
 const createLoc = createAsyncThunk(
   "loc/new",
-  async ({ data }, { rejectedWithValue }) => {
+  async ({ locData }, { rejectedWithValue }) => {
     try {
       const config = {
         headers: {
-          credentials: "include",
+          credentials: "included",
           "Content-Type": "application/json",
         },
       };
 
-      const { data } = await _axios.post("/loc/new", { data }, config);
+      const { data } = await _axios.post("/locs/new", { ...locData }, config);
       return data;
     } catch (error) {
       if (error.response && error.response.data.message) {
