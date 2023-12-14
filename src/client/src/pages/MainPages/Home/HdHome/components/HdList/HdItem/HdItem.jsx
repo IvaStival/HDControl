@@ -1,7 +1,7 @@
-import SmallButton from "../SmallButtom/SmallButton";
+import SmallButton from "../../../../../../../components/common/SmallButtom/SmallButton";
 import "./HdItem.css";
 
-import HdItemHeader from "./HdItemHeader";
+import HdItemHeader from "./HdItemHeader/HdItemHeader";
 
 const HdItem = ({
   id,

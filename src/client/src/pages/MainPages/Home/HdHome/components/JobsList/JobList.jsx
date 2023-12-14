@@ -1,6 +1,6 @@
 import "./JobList.css";
 
-import JobBox from "../JobBox/JobBox";
+import JobBox from "./JobBox/JobBox";
 import Dropdown from "../../../../../../components/common/Dropdown/Dropdown";
 import HdList from "../HdList/HdList";
 import Title from "../../../../../../components/common/Title/Title";

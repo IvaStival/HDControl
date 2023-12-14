@@ -3,7 +3,7 @@ import "./LocInfo.css";
 import { useSelector } from "react-redux";
 
 import Panel from "../../../../../../components/common/Panel/Panel";
-import HdInfoData from "./LocInfoData";
+import HdInfoData from "./LocInfoData/LocInfoData";
 
 import { selectJobHds } from "../../../../../../store/api/jobs/jobSlice";
 import { selectHds } from "../../../../../../store/api/hds/hdSlice";
@@ -24,7 +24,7 @@ const LocInfo = () => {
   }
 
   return (
-    <div className="hd-info-content">
+    <div className="info-content">
       <Title>Localization</Title>
       <Panel className="info-panel">{renderedContent}</Panel>
     </div>

@@ -1,17 +1,20 @@
 import "./LocEditableContent.css";
 import { useEffect, useState } from "react";
 
-import Buttom from "../../../../../../components/common/Button/Button";
-import Field from "../../../../../../components/common/Field/Field";
+import Buttom from "../../../../../../../components/common/Button/Button";
+import Field from "../../../../../../../components/common/Field/Field";
 
-import { updateLoc } from "../../../../../../store/api/loc/actions/updateLoc";
+import { updateLoc } from "../../../../../../../store/api/loc/actions/updateLoc";
 import { useDispatch } from "react-redux";
-import { getLoc } from "../../../../../../store/api/loc/actions/getLoc";
+import { getLoc } from "../../../../../../../store/api/loc/actions/getLoc";
 
-import AxiosHelper from "../../../../../../utils/axios-helper";
-import { backend_url, backend_port } from "../../../../../../utils/constants";
-import { createLoc } from "../../../../../../store/api/loc/actions/createLoc";
-import { updateHd } from "../../../../../../store/api/hds/actions/updateHd";
+import AxiosHelper from "../../../../../../../utils/axios-helper";
+import {
+  backend_url,
+  backend_port,
+} from "../../../../../../../utils/constants";
+import { createLoc } from "../../../../../../../store/api/loc/actions/createLoc";
+import { updateHd } from "../../../../../../../store/api/hds/actions/updateHd";
 
 const _axios = new AxiosHelper(`${backend_url}:${backend_port}`);
 

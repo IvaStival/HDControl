@@ -9,6 +9,7 @@ import LocInfo from "./components/LocInfo/LocInfo";
 import CreateJob from "./components/CreateJob/CreateJob";
 
 import { useState } from "react";
+import AllHdList from "./components/AllHdList/AllHdList";
 
 const HdHome = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -39,6 +40,7 @@ const HdHome = () => {
       <div className="home-main">
         <HdJobList />
         <LocInfo />
+        <AllHdList />
       </div>
     </div>
   );

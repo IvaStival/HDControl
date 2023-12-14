@@ -1,6 +1,6 @@
 import "./JobHeader.css";
 
-import SmallButton from "../SmallButtom/SmallButton";
+import SmallButton from "../../../../../../../../components/common/SmallButtom/SmallButton";
 
 const HdJobHeader = ({ title, handleDelete, showDropdown }) => {
   const handleClick = (e) => {

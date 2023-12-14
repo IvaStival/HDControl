@@ -1,6 +1,6 @@
 import "./HdItemHeader.css";
 
-import HdName from "./HdName";
+import HdName from "../HdName/HdName";
 
 const HdItemHeader = ({ interactive, children }) => {
   return (

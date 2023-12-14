@@ -2,8 +2,11 @@ import "./LocFixedContent.css";
 
 import { useEffect, useState } from "react";
 
-import AxiosHelper from "../../../../../../utils/axios-helper";
-import { backend_url, backend_port } from "../../../../../../utils/constants";
+import AxiosHelper from "../../../../../../../utils/axios-helper";
+import {
+  backend_url,
+  backend_port,
+} from "../../../../../../../utils/constants";
 
 const _axios = new AxiosHelper(`${backend_url}:${backend_port}`);
 

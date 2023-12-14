@@ -2,19 +2,19 @@ import "./JobBox.css";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import Panel from "../../../../../../components/common/Panel/Panel";
-import HdList from "../HdList/HdList";
-import HdJobHeader from "./JobHeader";
+import Panel from "../../../../../../../components/common/Panel/Panel";
+import HdList from "../../HdList/HdList";
+import HdJobHeader from "./JobHeader/JobHeader";
 
-import { selectHds } from "../../../../../../store/api/hds/hdSlice";
-import { selectHdStatus } from "../../../../../../store/api/hds/hdSlice";
+import { selectHds } from "../../../../../../../store/api/hds/hdSlice";
+import { selectHdStatus } from "../../../../../../../store/api/hds/hdSlice";
 
 import {
   selectJobs,
   updateJobHds,
-} from "../../../../../../store/api/jobs/jobSlice";
-import { updateJob } from "../../../../../../store/api/jobs/actions/updateJob";
-import { deleteJob } from "../../../../../../store/api/jobs/actions/deleteJob";
+} from "../../../../../../../store/api/jobs/jobSlice";
+import { updateJob } from "../../../../../../../store/api/jobs/actions/updateJob";
+import { deleteJob } from "../../../../../../../store/api/jobs/actions/deleteJob";
 
 const HdJobBox = ({ id, title, hd_list, handleShowMenu }) => {
   const hds = useSelector(selectHds);

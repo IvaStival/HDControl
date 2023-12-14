@@ -8,12 +8,13 @@
 }
 
 .job-list-content {
-  position: fixed;
-  height: calc(100% - 100px);
+  position: relative;
+  height: calc(100% - 70px);
   top: 0;
   left: 0;
   overflow: auto;
   top: 40px;
+  width: 315px;
 }
 
 .job-list-title {

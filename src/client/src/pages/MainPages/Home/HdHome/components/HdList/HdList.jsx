@@ -1,7 +1,7 @@
 import "./HdList.css";
 import { useSelector } from "react-redux";
 
-import HdItem from "../HdItem/HdItem";
+import HdItem from "./HdItem/HdItem";
 import { selectJobs } from "../../../../../../store/api/jobs/jobSlice";
 import { selectJobStatus } from "../../../../../../store/api/jobs/jobSlice";
 

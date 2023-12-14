@@ -1,9 +1,9 @@
 import "./LocInfoData.css";
 import { useState } from "react";
 
-import LocFixedContent from "./LocFixedContent";
-import SmallButton from "../SmallButtom/SmallButton";
-import LocEditableContent from "./LocEditableContent";
+import LocFixedContent from "../LocFixedContent/LocFixedContent";
+import SmallButton from "../../../../../../../components/common/SmallButtom/SmallButton";
+import LocEditableContent from "../LocEditableContent/LocEditableContent";
 
 const HdInfoData = ({ data }) => {
   const [editLocation, setEditLocation] = useState(false);
