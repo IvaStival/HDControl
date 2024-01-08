@@ -1,0 +1,31 @@
+.small-btn {
+  display: flex;
+  width: 12px;
+  height: 12px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 2px;
+  border-radius: 2px;
+  user-select: none;
+  font-size: 14px;
+}
+
+.small-btn:hover {
+  background-color: rgb(200, 200, 200);
+}
+
+.very-small-btn {
+  width: 8px;
+  height: 8px;
+  font-size: 12px;
+}
+
+.very-small-btn:hover {
+  background-color: rgb(255, 113, 113);
+}
+
+.fixed-bg {
+  background-color: rgb(200, 200, 200);
+}

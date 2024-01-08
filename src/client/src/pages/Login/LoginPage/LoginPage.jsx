@@ -20,7 +20,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     dispatch(auth());
-  }, []);
+  }, [isAuth]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

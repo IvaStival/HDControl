@@ -9,22 +9,50 @@
   z-index: 0;
   top: 0;
   left: 0;
-  overflow: scroll;
+  overflow: unset;
   transform: translateX(250px);
   /* margin-left: 70px; */
   /* background-color: red; */
   /* transform: translateX(100px); */
 }
 
-.hd-lists {
+.home-main {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
+/* .hd-lists {
   top: 0;
   position: absolute;
   display: flex;
   min-width: 300px;
+} */
+
+.btn-add {
+  position: absolute;
+  right: 30px;
+  width: 35px;
+  height: 35px;
+  margin-left: auto;
+  top: 30px;
+  z-index: 2;
 }
 
-@media (max-width: 1200px) {
-  .hd-lists {
+.info-panels {
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 1400px) {
+  .info-panels {
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
     flex-direction: column;
+    overflow: auto;
   }
 }

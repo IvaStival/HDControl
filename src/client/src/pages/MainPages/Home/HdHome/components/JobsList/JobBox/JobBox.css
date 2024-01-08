@@ -1,0 +1,23 @@
+.job-box {
+  padding-left: 10px;
+  margin: 10px;
+  user-select: none;
+}
+
+.job-content {
+  position: relative;
+  min-width: 250px;
+
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px;
+}
+
+.job-dropdown {
+  width: 250px;
+  padding: 10px;
+}

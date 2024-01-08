@@ -1,56 +1,27 @@
+import "./HdCreate.css";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { useAddHdMutation, useAddLocMutation } from "../../../../store";
-
-import Panel from "../../../../components/common/Panel/Panel";
-import Form from "../../../../components/hds/Form/Form";
-
-import "../../../index.css";
+import CreatePanel from "../components/CreatePanel/CreatePanel";
+import { createHd } from "../../../../store/api/hds/actions/createHd";
 
 const HdCreate = () => {
-  const [addHd] = useAddHdMutation();
-  const [addLoc] = useAddLocMutation();
+  const [addError, setAddError] = useState(0);
+
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const addEmptyLocation = async (hd_id) => {
-    const inputs = {
-      location: "",
-      responsible: "",
-      phone: "",
-      mail: "",
-      date: "",
-      job: "",
-      type: "none",
-      size: "0",
-      hd_id: hd_id,
-    };
-
-    await addLoc(inputs)
-      .unwrap()
-      .then((response) => {
-        navigate(0);
-        return;
-      })
-      .catch((error) => console.error(error));
-  };
 
   const handleSubmit = async (e, inputs) => {
     e.preventDefault();
 
-    await addHd(inputs)
-      .unwrap()
-      .then((response) => {
-        addEmptyLocation(response.id);
-        navigate("/hds");
-      })
-      .catch((error) => console.error(error));
+    const new_hd_data = { ...inputs, qrcode: "ASDAS", type: 1 };
+
+    dispatch(createHd(new_hd_data));
+    navigate("/hds");
   };
 
-  return (
-    <Panel>
-      <Form isCreate={true} handleSubmit={handleSubmit} />
-    </Panel>
-  );
+  return <CreatePanel handleSubmit={handleSubmit} addError={addError} />;
 };
 
 export default HdCreate;

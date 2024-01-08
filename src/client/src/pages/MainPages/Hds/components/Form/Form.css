@@ -1,0 +1,44 @@
+.hd-create-content {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  width: 520px;
+}
+
+.hd-create-content h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.hd-create-content form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.hd-create-content input {
+  border-color: rgb(215, 215, 215);
+  border-style: solid;
+  border-radius: 4px;
+  margin-left: 4px;
+  padding: 0.5rem;
+  font-size: 14px;
+}
+
+.hd-create-content input::placeholder {
+  color: rgb(208, 208, 208);
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  justify-content: flex-end;
+  font-size: 14px;
+}
+
+.btn-create {
+  margin-left: 3px;
+}

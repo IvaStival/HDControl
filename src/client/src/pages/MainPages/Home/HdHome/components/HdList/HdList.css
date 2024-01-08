@@ -1,0 +1,9 @@
+.hd-item-list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: left;
+  flex-direction: row;
+  width: 225px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}

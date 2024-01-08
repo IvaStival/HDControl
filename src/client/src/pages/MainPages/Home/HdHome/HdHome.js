@@ -1,51 +1,49 @@
-import HdLocationList from "../../../../components/home/HdLocationList/HdLocationList";
-import { useFetchLocWithHdsQuery } from "../../../../store";
 import "./HdHome.css";
 import "../../../index.css";
-import HdJobBox from "../../../../components/home/HdJobBox/HdJobBox";
+
+import Button from "../../../../components/common/Button/Button";
+import HdJobList from "./components/JobsList/JobList";
+import Dropdown from "../../../../components/common/Dropdown/Dropdown";
+import LocInfo from "./components/LocInfo/LocInfo";
+
+import CreateJob from "./components/CreateJob/CreateJob";
+
+import { useState } from "react";
+import HdStateList from "./components/HdStateList/HdStateList";
 
 const HdHome = () => {
-  const { data, error, isFetching } = useFetchLocWithHdsQuery();
-  const config_home = [];
-  const config_far = [];
+  const [showMenu, setShowMenu] = useState(false);
+  const [clickPos, setClickPos] = useState([0, 0]);
 
-  let content;
-
-  if (isFetching) {
-    content = <div>Fetching Data</div>;
-  } else if (error) {
-    content = <div>Error Fetching HDs location</div>;
-  } else {
-    for (let i = 0; i < data.length; ++i) {
-      if (data[i].location === "") {
-        config_home.push({
-          id: data[i].id,
-          name: data[i].hd.title,
-          ishome: true,
-          size: data[i].hd.size,
-          job: "",
-        });
-      } else {
-        config_far.push({
-          id: data[i].id,
-          name: data[i].hd.title,
-          ishome: false,
-          size: data[i].hd.size,
-          location: data[i].location,
-          job: data[i].job,
-        });
-      }
-    }
-  }
+  const handleShowMenu = (e) => {
+    e.stopPropagation();
+    setClickPos([e.target.offsetLeft, e.target.offsetTop]);
+    setShowMenu(!showMenu);
+  };
 
   return (
     <div className="home-content">
-      {/* <div className="hd-lists">
-        {content}
-        <HdLocationList title="Home" data={config_home} />
-        <HdLocationList title="Far Away" data={config_far} />
-      </div> */}
-      <HdJobBox />
+      <Button onClick={handleShowMenu} className="btn-add" primary rounded50>
+        +
+      </Button>
+
+      <Dropdown
+        x={clickPos[0]}
+        y={clickPos[1]}
+        activated={showMenu}
+        closeMenu={setShowMenu}
+      >
+        <CreateJob setShowMenu={setShowMenu} />
+      </Dropdown>
+
+      {/* This componets have a list of Jobs and the HDs that are been used in this each Job */}
+      <div className="home-main">
+        <HdJobList />
+        <div className="info-panels">
+          <LocInfo />
+          <HdStateList />
+        </div>
+      </div>
     </div>
   );
 };

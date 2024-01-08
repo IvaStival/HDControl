@@ -24,43 +24,57 @@ const createLoc = (req, res) => {
     .catch((error) => {
       return res.status(400).json({
         error,
-        message: "HD not created",
+        message: "Localization not created",
       });
     });
 };
 
 const updateLoc = async (req, res) => {
   const body = req.body;
-
+  console.log(body);
   if (!body) {
     return res.status(400).json({
       success: false,
-      error: "You must to provide a body to update",
+      error: "You must to provide a body to update localization",
     });
   }
 
   try {
-    const loc = await Localization.findOne({ _id: req.params.id });
+    // const loc = await Localization.findOne({ _id: req.params.id });
 
-    loc.location = body.location;
-    loc.responsible = body.responsible;
-    loc.phone = body.phone;
-    loc.mail = body.mail;
-    loc.job = body.job;
-    loc.type = body.type;
-    loc.description = body.description;
-    loc.hdId = body.hdId;
+    // loc.location = body.location;
+    // loc.responsible = body.responsible;
+    // loc.city = body.city;
+    // loc.phone = body.phone;
+    // loc.mail = body.mail;
+    // loc.description = body.description;
 
-    loc
-      .save()
+    // loc
+    //   .save()
+    //   .then(() => {
+    //     return res.status(200).json({
+    //       success: true,
+    //       id: loc._id,
+    //       message: "Localization updated",
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     return res.status(404).json({
+    //       error,
+    //       message: "Localization not updated",
+    //     });
+    //   });
+
+    await Localization.updateMany({ _id: req.params.id }, body)
       .then(() => {
         return res.status(200).json({
           success: true,
-          id: loc._id,
+          id: req.params.id,
           message: "Localization updated",
         });
       })
       .catch((error) => {
+        console.log("d12312312");
         return res.status(404).json({
           error,
           message: "Localization not updated",

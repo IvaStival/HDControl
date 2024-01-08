@@ -1,0 +1,34 @@
+.hd-item-content {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  border-radius: 3px;
+  background-color: rgb(231, 231, 231);
+  margin-top: 5px;
+  margin-right: 5px;
+  user-select: none;
+}
+
+.hd-number {
+  font-size: 12px;
+}
+
+.hd-size {
+  position: absolute;
+  font-size: 6px;
+  bottom: 0;
+  right: 0;
+  margin: 3px;
+}
+
+.hd-disable {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.hd-item-delete-btn {
+  position: absolute;
+  top: -1.5px;
+  right: -1.5px;
+}

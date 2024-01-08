@@ -1,0 +1,14 @@
+.loc-edit-content {
+  width: 100%;
+}
+
+.loc-btns {
+  display: flex;
+  flex-direction: row;
+  right: 0;
+}
+
+.loc-update-btn {
+  height: 20px;
+  margin-left: 5px;
+}

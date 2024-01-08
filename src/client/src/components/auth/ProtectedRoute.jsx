@@ -15,14 +15,14 @@ const ProtectedRoute = ({ children }) => {
   }, []);
 
   if (loading) {
-    console.log("Wainting...");
+    // console.log("Wainting...");
   } else if (success) {
-    console.log("[ProtectedRoute] - Success");
+    // console.log("[ProtectedRoute] - Success");
     if (isAuth) {
       console.log("[ProtectedRoute] - isAuth");
       return children;
     } else {
-      console.log("[ProtectedRoute] - Logout");
+      // console.log("[ProtectedRoute] - Logout");
       return <Navigate to="/login" state={{ from: location }} replace />;
     }
   }

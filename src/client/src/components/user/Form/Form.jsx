@@ -9,7 +9,6 @@ import Group from "../../../components/common/Group/Group";
 import { font, space, direction, title } from "../../../styles";
 
 import "./Form.css";
-import { useUpdateLocMutation } from "../../../store";
 import { getDate } from "../../../utils/getDate";
 
 const Form = ({ data }) => {
@@ -24,28 +23,9 @@ const Form = ({ data }) => {
     data.type === "raw" ? true : false
   );
 
-  const [updateLocation] = useUpdateLocMutation();
+  // const [updateLocation] = useUpdateLocMutation();
 
-  const handleSave = async (e) => {
-    const date = getDate();
-    console.log(date);
-
-    let data_type = "";
-    if (bkpCheck) data_type = "backup";
-    else if (masterCheck) data_type = "raw";
-
-    await updateLocation({
-      id: data.id,
-      inputs: {
-        location: location,
-        job: job,
-        size: size,
-        type: data_type,
-        description: description,
-        date: date,
-      },
-    });
-  };
+  const handleSave = (e) => {};
 
   const handleBkpChange = (e) => {
     setBkpCheck(!bkpCheck);

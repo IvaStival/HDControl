@@ -1,14 +1,11 @@
 {
   "folders": [
-	{
-		"path": ".."
-	},
-	{
-		"path": "../../SchoolPortal/portal"
-	},
-	{
-		"path": "../../SchoolPortal/portal_project"
-	}
-],
+    {
+      "path": ".."
+    },
+    {
+      "path": "../../SchoolPortal/portal_project"
+    }
+  ],
   "settings": {}
 }

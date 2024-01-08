@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import { useFetchLocWithSpecificHdQuery } from "../../../store";
 
 import Form from "../../../components/user/Form/Form";
 
@@ -8,17 +7,16 @@ import { title } from "../../../styles";
 
 const EditLocationPage = () => {
   const { id } = useParams();
-  const { data, error, isFetching } = useFetchLocWithSpecificHdQuery(id);
 
   let content = "";
 
-  if (isFetching) {
-    content = "";
-  } else if (error) {
-    content = <div>{error}</div>;
-  } else {
-    content = <Form data={data[0]} />;
-  }
+  // if (isFetching) {
+  //   content = "";
+  // } else if (error) {
+  //   content = <div>{error}</div>;
+  // } else {
+  //   content = <Form data={data[0]} />;
+  // }
 
   return (
     <div className="edit-loc-all-content">

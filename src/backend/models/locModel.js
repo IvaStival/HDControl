@@ -4,14 +4,12 @@ const Schema = mongoose.Schema;
 
 const locSchema = new Schema(
   {
-    location: { type: String, required: true },
-    responsible: { type: String, required: true },
-    phone: { type: String, required: true },
-    mail: { type: String, required: true },
-    job: { type: String, required: true },
-    type: { type: String, required: true },
-    description: { type: String, required: true },
-    hdId: { type: String, required: true },
+    location: { type: String, required: false },
+    responsible: { type: String, required: false },
+    city: { type: String, required: false },
+    phone: { type: String, required: false },
+    mail: { type: String, required: false },
+    description: { type: String, required: false },
   },
   { timestamps: true }
 );

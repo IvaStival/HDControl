@@ -11,9 +11,11 @@ const createHd = (req, res) => {
     });
   }
 
+  console.log(body);
+
   const hd = new Hd(body);
 
-  hd.save()
+  Hd.insertMany(body, { upsert: true })
     .then(() => {
       return res.status(201).json({
         success: true,
@@ -22,6 +24,7 @@ const createHd = (req, res) => {
       });
     })
     .catch((error) => {
+      console.log(error);
       return res.status(400).json({
         error,
         message: "Hd not created",
@@ -41,25 +44,19 @@ const updateHd = async (req, res) => {
   }
 
   try {
-    const hd = await Hd.findOne({ _id: req.params.id });
-
-    hd.title = body.title;
-    hd.size = body.size;
-    hd.code = body.code;
-    hd.qrcode = body.qrcode;
-
-    hd.save()
+    await Hd.updateMany({ _id: req.params.id }, body)
       .then(() => {
         return res.status(200).json({
           success: true,
-          id: hd._id,
+          id: req.params.id,
           message: "Hd updated",
         });
       })
       .catch((error) => {
+        console.log("d12312312");
         return res.status(404).json({
           error,
-          message: "Movie not updated",
+          message: "HD not updated",
         });
       });
   } catch (err) {
@@ -99,13 +96,6 @@ const getHds = async (req, res) => {
   try {
     const result = await Hd.find({});
 
-    if (!result) {
-      return res.status(404).json({
-        success: false,
-        error: "Hdds not found",
-      });
-    }
-
     return res.status(200).json({
       success: true,
       data: result,
@@ -122,7 +112,7 @@ const getHds = async (req, res) => {
 const getHdById = async (req, res) => {
   try {
     const result = await Hd.findOne({ _id: req.params.id });
-
+    console.log(req.params.id);
     if (!result) {
       return res.status(404).json({
         success: false,
