@@ -11,9 +11,17 @@
   position: relative;
   top: 10px;
 }
-.content {
+.hd-list-content {
   position: relative;
   display: flex;
-  width: 600px;
-  height: 300px;
+  min-width: 360px;
+  height: calc(100% - 10px);
+  margin: 20px;
+}
+
+@media (max-width: 1400px) {
+  .all-hd-list-content {
+    margin-left: 0px;
+    margin-top: 20px;
+  }
 }

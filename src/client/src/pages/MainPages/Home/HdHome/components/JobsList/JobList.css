@@ -14,7 +14,7 @@
   left: 0;
   overflow: auto;
   top: 40px;
-  width: 315px;
+  min-width: 315px;
 }
 
 .job-list-title {

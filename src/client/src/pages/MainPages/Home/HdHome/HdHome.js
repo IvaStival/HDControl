@@ -9,7 +9,7 @@ import LocInfo from "./components/LocInfo/LocInfo";
 import CreateJob from "./components/CreateJob/CreateJob";
 
 import { useState } from "react";
-import AllHdList from "./components/AllHdList/AllHdList";
+import HdStateList from "./components/HdStateList/HdStateList";
 
 const HdHome = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -39,8 +39,10 @@ const HdHome = () => {
       {/* This componets have a list of Jobs and the HDs that are been used in this each Job */}
       <div className="home-main">
         <HdJobList />
-        <LocInfo />
-        <AllHdList />
+        <div className="info-panels">
+          <LocInfo />
+          <HdStateList />
+        </div>
       </div>
     </div>
   );
