@@ -14,6 +14,7 @@ import store from "./store";
 import NavBar from "./pages/NavBar/NavBar";
 import RegisterPage from "./pages/Login/RegisterPage/RegisterPage";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import LocationPage from "./pages/Location/LocationPage";
 
 const AppLayout = () => (
   <>
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
   {
     element: <RegisterPage />,
     path: "/register",
+  },
+  {
+    element: <LocationPage />,
+    path: "/edit-location/:id",
   },
 ]);
 

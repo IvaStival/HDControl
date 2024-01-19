@@ -31,8 +31,7 @@ const locSlice = createSlice({
         state.status = "loading";
       })
       .addCase(updateLoc.fulfilled, (state, action) => {
-        state.status = "idle";
-
+        state.status = "succeeded";
         state.data = action.payload.id;
       })
       .addCase(updateLoc.rejected, (state, action) => {
@@ -54,3 +53,6 @@ const locSlice = createSlice({
 });
 
 export default locSlice.reducer;
+
+export const selectLocs = (state) => state.loc.data;
+export const selectLocStatus = (state) => state.loc.status;
