@@ -6,7 +6,7 @@ const _axios = new AxiosHelper(`${backend_url}:${backend_port}`);
 
 const getLoc = createAsyncThunk(
   "loc/getloc",
-  async ({ id }, { rejectedWithValue }) => {
+  async (id, { rejectedWithValue }) => {
     try {
       console.log(id);
       const config = {
@@ -16,7 +16,7 @@ const getLoc = createAsyncThunk(
         },
       };
 
-      const { data } = await _axios.get(`/loc/${id}`, {}, config);
+      const { data } = await _axios.get(`/locs/loc/${id}`, {}, config);
 
       return data;
     } catch (error) {

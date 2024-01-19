@@ -1,7 +1,7 @@
 import "./LocEditableContent.css";
 import { useEffect, useState } from "react";
 
-import Buttom from "../../../../../../../components/common/Button/Button";
+import Button from "../../../../../../../components/common/Button/Button";
 import Field from "../../../../../../../components/common/Field/Field";
 
 import { updateLoc } from "../../../../../../../store/api/loc/actions/updateLoc";
@@ -116,14 +116,14 @@ const LocEditableContent = ({
           value={inputs["description"]}
         ></Field>
         <div className="loc-btns">
-          <Buttom className={"loc-update-btn"}>Cancel</Buttom>
-          <Buttom
+          <Button className={"loc-update-btn"}>Cancel</Button>
+          <Button
             onClick={handleUpdateorCreate}
             primary
             className={"loc-update-btn"}
           >
             {id ? "Update" : "Create"}
-          </Buttom>
+          </Button>
         </div>
       </div>
     );

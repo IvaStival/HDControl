@@ -1,0 +1,20 @@
+.user-location-content {
+  padding: 20px;
+}
+
+.public-location-modal {
+  display: flex;
+  width: 250px;
+  height: 200px;
+  align-items: center;
+  justify-content: center;
+}
+
+.loc-update-btn {
+  padding: 13px;
+  font-size: 14px;
+}
+
+.loc-btns {
+  justify-content: flex-end;
+}

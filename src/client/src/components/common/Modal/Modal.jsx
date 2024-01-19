@@ -20,7 +20,7 @@ const Modal = ({ onClose, children, actionBar }) => {
       <div className="modal-content">
         <div className="modal-children">
           {children}
-          <div className="modal-actions">{actionBar}</div>
+          {actionBar && <div className="modal-actions">{actionBar}</div>}
         </div>
       </div>
     </div>,

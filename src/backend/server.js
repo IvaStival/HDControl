@@ -56,7 +56,8 @@ app.use(
       maxAge: 1000 * 60 * 60 * 24 * 7,
     },
     store: MongoStore.create({
-      mongoUrl: "mongodb://localhost:27017/hdcontrol",
+      // mongoUrl: "mongodb://localhost:27017/hdcontrol",
+      mongoUrl: process.env.MONGODB_CONNECT_CREATE,
       collectionName: "hdcontrolSession",
     }),
   })
