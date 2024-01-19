@@ -5,6 +5,9 @@
     },
     {
       "path": "../../SchoolPortal/portal_project"
+    },
+    {
+      "path": "../../HDControlBackend"
     }
   ],
   "settings": {}
